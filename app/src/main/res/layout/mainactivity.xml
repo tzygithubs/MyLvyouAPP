@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 <android.support.v4.view.ViewPager
+    android:id="@+id/viewpager_main"
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="7">
@@ -16,15 +17,42 @@
         />
 
     <RadioGroup
+        android:id="@+id/radio_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
         
         <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:button="null"
-            android:background=""
+            android:id="@+id/radiobutton_shouye"
+            style="@style/RadioButton"
+            android:background="@mipmap/shouye"
+
+            />
+        <RadioButton
+            android:id="@+id/radiobutton_xingcheng"
+            style="@style/RadioButton"
+            android:background="@mipmap/xingcheng"
+
+            />
+        <RadioButton
+            android:id="@+id/radiobutton_faxian"
+            style="@style/RadioButton"
+            android:background="@mipmap/faxian"
+
+            />
+        <RadioButton
+            android:id="@+id/radiobutton_kefu"
+            style="@style/RadioButton"
+            android:background="@mipmap/kefu"
+
+            />
+        <RadioButton
+            android:id="@+id/radiobutton_wode"
+            style="@style/RadioButton"
+            android:background="@mipmap/wode"
+
             />
 
     </RadioGroup>
