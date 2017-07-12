@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/jb"/>
+        <ImageView
+            android:id="@+id/dh"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/dianhua"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dingdan"
+            android:textColor="@color/baise"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/zixun"
+            android:textColor="@color/baise"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"/>
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/shuaxin"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="345dp"/>
+
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>

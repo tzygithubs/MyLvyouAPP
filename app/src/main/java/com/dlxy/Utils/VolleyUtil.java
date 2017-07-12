@@ -81,7 +81,7 @@ public class VolleyUtil {
             MyApplication.getRequestQueue().add(stringRequest);
     }
 
-    public  void regist(String name , String password , String age, String gender, final RegistCallBack raCallBack){
+    public  void regist(final String name , final String password , final String age, final String gender, final RegistCallBack raCallBack){
         StringRequest stringRequest = new StringRequest(Request.Method.POST, UserContents.registUrl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -93,6 +93,17 @@ public class VolleyUtil {
             public void onErrorResponse(VolleyError error) {
                 raCallBack.registError(error.toString());
             }
-        });
+        }){
+            protected Map<String , String> getParams(){
+                Map<String, String> map = new HashMap<>();
+                map.put("name", name);
+                map.put("password", password);
+                map.put("age", age);
+                map.put("gender", gender);
+                return map;
+            }
+        };
+        stringRequest.setTag(VOLLEY_TAG);
+        MyApplication.getRequestQueue().add(stringRequest);
     }
 }
