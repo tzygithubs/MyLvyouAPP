@@ -10,11 +10,7 @@
     android:layout_weight="7">
 
 </android.support.v4.view.ViewPager>
-    <view
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#3C3C3C"
-        />
+
 
     <RadioGroup
         android:id="@+id/radio_main"
