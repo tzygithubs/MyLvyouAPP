@@ -1,4 +1,4 @@
-package main.dlxy.com.mylvyouapp;
+package main.dlxy.com.Activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +16,8 @@ import com.dlxy.fragment.WoDeFragment;
 import com.dlxy.fragment.XingChengFragment;
 
 import java.util.ArrayList;
+
+import main.dlxy.com.mylvyouapp.R;
 
 
 public class MainActivity extends FragmentActivity implements ViewPager.OnPageChangeListener, View.OnClickListener {
