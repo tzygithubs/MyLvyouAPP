@@ -1,4 +1,39 @@
 <resources>
     <string name="app_name">MyLvyouAPP</string>
+    <string name="app_names">发现</string>
+    <string name="app_wanzhuan">玩转</string>
+    <string name="app_quanqiu">全球</string>
+    <string name="app_tanxun">探寻</string>
+    <string name="app_mudidi">目的地</string>
+    <string name="app_xzmdd">选择目的地</string>
+    <string name="app_sh">上海</string>
+    <string name="app_cf">出发</string>
+    <string name="app_xqd">兴趣点</string>
+    <string name="app_cxsj">出行时间</string>
+    <string name="app_gdph">更多偏好</string>
+    <string name="app_cjy">出境游</string>
+    <string name="app_dny">东南亚</string>
+    <string name="app_gat">港澳台</string>
+    <string name="app_rm">日蒙</string>
+    <string name="app_mz">美洲</string>
+    <string name="app_gny">国内游</string>
+    <string name="app_hd">华东</string>
+    <string name="app_hb">华北</string>
+    <string name="app_hn">华南</string>
+    <string name="app_hyh">换一换</string>
+    <string name="app_ts">特色</string>
+    <string name="app_pd">频道</string>
+    <string name="app_wld">微领队</string>
+    <string name="wld_nr">旅友互助交流</string>
+    <string name="wld_nr2">领队贴心服务</string>
+    <string name="app_lxgw">旅行顾问</string>
+    <string name="lxgw_nr">旅行专家</string>
+    <string name="lxgw_nr2">为您答疑解惑</string>
+    <string name="app_dzlx">定制旅行</string>
+    <string name="dzlx_nr">一站式服务</string>
+    <string name="dzlx_nr2">定制专属行程</string>
+    <string name="app_gjhcp">国际火车票</string>
+    <string name="gjhcp_nr">坐火车看世界</string>
+    <string name="gjhcp_nr2">体验不一样</string>
 
 </resources>
