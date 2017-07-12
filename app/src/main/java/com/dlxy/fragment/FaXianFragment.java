@@ -88,6 +88,7 @@ public class FaXianFragment extends Fragment implements AdapterView.OnItemClickL
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long arg3) {
         Intent intent = new Intent(FaXianFragment.this.getActivity(), MainActivity.class);
+
         Bundle b = new Bundle();
         b.putString("name", namesb[position]);
         b.putInt("position", position);
