@@ -61,6 +61,8 @@ public class DengRu extends Activity implements View.OnClickListener {
                 });
                 break;
             case R.id.text_zhuce:
+                Intent intent = new Intent(DengRu.this,ZhuCe.class);
+                startActivity(intent);
                 break;
         }
     }

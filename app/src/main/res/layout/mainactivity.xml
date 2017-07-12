@@ -19,13 +19,14 @@
         android:layout_weight="1"
         android:orientation="horizontal"
         android:gravity="center_vertical">
-        
+
         <RadioButton
             android:id="@+id/radiobutton_shouye"
             style="@style/RadioButton"
             android:background="@mipmap/shouye"
 
             />
+
         <RadioButton
             android:id="@+id/radiobutton_xingcheng"
             style="@style/RadioButton"
