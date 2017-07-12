@@ -5,5 +5,6 @@ package com.dlxy.interfaces;
  */
 
 public interface RegistCallBack {
-
+    void registSuccess(String success);
+    void registError(String error);
 }

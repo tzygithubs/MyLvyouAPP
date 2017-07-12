@@ -11,6 +11,7 @@ import com.dlxy.contents.UserContents;
 import com.dlxy.domain.Customer;
 import com.dlxy.interfaces.LoginCallBack;
 import com.dlxy.interfaces.MyCallBack;
+import com.dlxy.interfaces.RegistCallBack;
 import com.dlxy.myApplication.MyApplication;
 
 import java.util.HashMap;
@@ -78,5 +79,19 @@ public class VolleyUtil {
         };
             stringRequest.setTag(VOLLEY_TAG);
             MyApplication.getRequestQueue().add(stringRequest);
+    }
+
+    public  void regist(String name , String password , String age, String gender, final RegistCallBack raCallBack){
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, UserContents.registUrl, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                raCallBack.registSuccess(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                raCallBack.registError(error.toString());
+            }
+        });
     }
 }
