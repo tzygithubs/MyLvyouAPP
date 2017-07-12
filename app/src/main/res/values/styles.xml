@@ -16,4 +16,28 @@
 
     </style>
 
+    <style name="match_wrap">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- 顶部导航栏的样式 -->
+    <style name="dibu_daohang" parent="@style/match_wrap">
+        <!-- 方向属性 -->
+        <item name="android:orientation">horizontal</item>
+        <!-- 背景属性 -->
+        <item name="android:background">@color/colorWhite</item>
+    </style>
+
+    <style name="dibu_daohang_button" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+    </style>
+
 </resources>

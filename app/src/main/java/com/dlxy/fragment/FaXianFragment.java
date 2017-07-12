@@ -22,7 +22,7 @@ import main.dlxy.com.mylvyouapp.R;
  * Created by T on 2017/7/11.
  */
 
-public class FaXianFragment extends Fragment implements AdapterView.OnItemClickListener {
+public class FaXianFragment extends Fragment {
     private View view;
     private GridView gv;
     private List<HashMap<String, Object>> list;
@@ -54,7 +54,7 @@ public class FaXianFragment extends Fragment implements AdapterView.OnItemClickL
         String[] from = {"imgdz", "text"};
         int[] to = {R.id.item_found_img, R.id.item_found_name};
         gv.setAdapter(new SimpleAdapter(view.getContext(), list, R.layout.item_found,from, to));
-        gv.setOnItemClickListener(this);
+//        gv.setOnItemClickListener(this);
     }
 
     private void initData() {
@@ -85,14 +85,14 @@ public class FaXianFragment extends Fragment implements AdapterView.OnItemClickL
         ((ViewGroup)view.getParent()).removeView(view);
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int position, long arg3) {
-        Intent intent = new Intent(FaXianFragment.this.getActivity(), MainActivity.class);
-
-        Bundle b = new Bundle();
-        b.putString("name", namesb[position]);
-        b.putInt("position", position);
-        intent.putExtras(b);
-        startActivity(intent);
-    }
+//    @Override
+//    public void onItemClick(AdapterView<?> adapterView, View view, int position, long arg3) {
+//        Intent intent = new Intent(FaXianFragment.this.getActivity(), MainActivity.class);
+//
+//        Bundle b = new Bundle();
+//        b.putString("name", namesb[position]);
+//        b.putInt("position", position);
+//        intent.putExtras(b);
+//        startActivity(intent);
+//    }
 }
