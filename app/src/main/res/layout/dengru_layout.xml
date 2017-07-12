@@ -1,9 +1,11 @@
-<TableRow android:layout_width="match_parent"
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <TextView
             android:layout_width="fill_parent"
@@ -15,27 +17,28 @@
             />
 
         <EditText
-            android:id="@+id/et"
+            android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/tishi"
             android:layout_marginTop="150dp"
             />
         <EditText
-            android:id="@+id/et1"
+            android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/mima"
             android:layout_marginTop="200dp"
             />
         <Button
-            android:id="@+id/btn"
+            android:id="@+id/bt_dengru"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/denglu"
             android:layout_marginTop="250dp"
             />
         <TextView
+            android:id="@+id/text_zhuce"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/zhuce"
@@ -53,4 +56,4 @@
     </RelativeLayout>
 
 
-</TableRow>
+</LinearLayout>
