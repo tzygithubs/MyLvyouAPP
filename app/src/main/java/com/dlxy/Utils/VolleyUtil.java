@@ -103,5 +103,7 @@ public class VolleyUtil {
                 return map;
             }
         };
+        stringRequest.setTag(VOLLEY_TAG);
+        MyApplication.getRequestQueue().add(stringRequest);
     }
 }
