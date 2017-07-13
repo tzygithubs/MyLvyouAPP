@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dlxy.Utils.VolleyUtil;
+import com.dlxy.domain.Yanzheng;
 import com.dlxy.interfaces.LoginCallBack;
 
 import main.dlxy.com.mylvyouapp.R;
@@ -22,6 +23,7 @@ public class DengRu extends Activity implements View.OnClickListener {
     private Button dr;
     private EditText zh , ma ;
     private TextView zc;
+    Yanzheng yanzheng = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +48,13 @@ public class DengRu extends Activity implements View.OnClickListener {
             case R.id.bt_dengru:
                 String names = zh.getText().toString().trim();
                 String password = ma.getText().toString().trim();
+                Boolean yz = true;
 
                 VolleyUtil.getInstance().login(names, password, new LoginCallBack() {
                     @Override
                     public void success(String info) {
+                        yanzheng =new Yanzheng();
+                        yanzheng.setYanzheng(true);
                         Intent intent = new Intent(DengRu.this,MainActivity.class);
                         startActivity(intent);
                     }

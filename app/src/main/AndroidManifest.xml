@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name="main.dlxy.com.Activity.MainActivity"/>
+        <activity android:name="main.dlxy.com.Activity.ZhuCe"/>
     </application>
 
 </manifest>

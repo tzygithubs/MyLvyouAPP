@@ -1,10 +1,7 @@
 package main.dlxy.com.Activity;
 
 import android.app.Activity;
-
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,8 +21,8 @@ public class ZhuCe extends Activity implements View.OnClickListener {
     private EditText yh , ma , nl ,xb;
     private Button zhuce;
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.zhuce_layout);
         initView();
     }
@@ -50,7 +47,8 @@ public class ZhuCe extends Activity implements View.OnClickListener {
                     String age = nl.getText().toString().trim();
                     String gender = xb.getText().toString().trim();
 
-                VolleyUtil.getInstance().regist(name, password, age, gender, null, new RegistCallBack() {
+
+                VolleyUtil.getInstance().regist(name, password, age, gender, new RegistCallBack() {
                     @Override
                     public void registSuccess(String success) {
                         if(success.equals(UserContents.error_user_exit)) {
