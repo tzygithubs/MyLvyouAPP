@@ -13,6 +13,7 @@ import com.dlxy.domain.Customer;
 import com.dlxy.interfaces.LoginCallBack;
 import com.dlxy.interfaces.MyCallBack;
 import com.dlxy.interfaces.RegistCallBack;
+import com.dlxy.interfaces.WodeCallBack;
 import com.dlxy.myApplication.MyApplication;
 
 import java.util.HashMap;
@@ -27,6 +28,7 @@ public class VolleyUtil {
     private static final String TAG = "VolleyUtil";
     private static final String VOLLEY_TAG = "VolleyTag";
     private static VolleyUtil instance;
+    private String[] json;
 
     public static VolleyUtil getInstance() {
         if(instance == null) {
@@ -57,7 +59,7 @@ public class VolleyUtil {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, UserContents.loginUrl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.i(TAG,"...response:" + response);
+
                 if (response.equals(UserContents.ok)){
                         loginCallBack.success(UserContents.ok);
                 }else {
@@ -68,7 +70,7 @@ public class VolleyUtil {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                loginCallBack.success(UserContents.error);
+                loginCallBack.errr(UserContents.error);
             }
         }){
             protected Map<String ,String> getParams(){
@@ -102,10 +104,40 @@ public class VolleyUtil {
                 map.put("age", age);
                 map.put("gender", gender);
 
+
                 return map;
             }
         };
         stringRequest.setTag(VOLLEY_TAG);
         MyApplication.getRequestQueue().add(stringRequest);
     }
+
+    public void wode(final String name , final WodeCallBack wodeCallBack){
+        StringRequest wodejson = new StringRequest(Request.Method.POST, UserContents.wodeUrl, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.i(TAG,"...re"+response.toString());
+                List<Customer> customers = JSON.parseArray(response,Customer.class);
+                wodeCallBack.success(customers);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("name", name);
+                return map;
+            }
+        };
+       wodejson.setTag(VOLLEY_TAG);
+        MyApplication.getRequestQueue().add(wodejson);
+    }
+
+
+
+
 }

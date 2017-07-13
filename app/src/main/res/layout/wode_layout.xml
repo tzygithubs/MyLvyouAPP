@@ -52,7 +52,7 @@
             android:layout_alignTop="@+id/touxiang"
             android:layout_marginLeft="35dp"
             android:layout_toRightOf="@+id/touxiang"
-            android:text="尊敬的会员"
+
             android:textColor="@color/colorWhite"
             android:textSize="25sp" />
 

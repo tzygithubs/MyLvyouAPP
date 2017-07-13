@@ -7,17 +7,21 @@ package com.dlxy.domain;
 public class Customer {
     private String name;
     private int id;
-    private String address;
-    private String phone;
+    private String password;
+    private String gender;
+    private String avator;
+    private String age;
 
     public Customer() {
     }
 
-    public Customer(String name, int id, String address, String phone) {
+    public Customer(String name, int id, String password, String gender, String avator, String age) {
         this.name = name;
         this.id = id;
-        this.address = address;
-        this.phone = phone;
+        this.password = password;
+        this.gender = gender;
+        this.avator = avator;
+        this.age = age;
     }
 
     public String getName() {
@@ -36,20 +40,36 @@ public class Customer {
         this.id = id;
     }
 
-    public String getAddress() {
-        return address;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getGender() {
+        return gender;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getAvator() {
+        return avator;
+    }
+
+    public void setAvator(String avator) {
+        this.avator = avator;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
     }
 
     @Override
@@ -57,8 +77,10 @@ public class Customer {
         return "Customer{" +
                 "name='" + name + '\'' +
                 ", id=" + id +
-                ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
+                ", password='" + password + '\'' +
+                ", gender='" + gender + '\'' +
+                ", avator='" + avator + '\'' +
+                ", age='" + age + '\'' +
                 '}';
     }
 }

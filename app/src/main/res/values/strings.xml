@@ -48,5 +48,6 @@
     <string name="xingbie">性别</string>
     <string name="age">年龄</string>
 
-
+    <string name="faxian">发现</string>
+    <string name="xin">新的行程</string>
 </resources>

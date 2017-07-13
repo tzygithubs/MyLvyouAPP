@@ -10,8 +10,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dlxy.Utils.VolleyUtil;
-import com.dlxy.domain.Yanzheng;
+import com.dlxy.domain.Customer;
 import com.dlxy.interfaces.LoginCallBack;
+import com.dlxy.interfaces.WodeCallBack;
+
+import java.util.List;
 
 import main.dlxy.com.mylvyouapp.R;
 
@@ -20,10 +23,12 @@ import main.dlxy.com.mylvyouapp.R;
  */
 
 public class DengRu extends Activity implements View.OnClickListener {
+    public static final  String TAG = "DengRu";
     private Button dr;
     private EditText zh , ma ;
     private TextView zc;
-    Yanzheng yanzheng = null;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,22 @@ public class DengRu extends Activity implements View.OnClickListener {
         zc =(TextView) findViewById(R.id.text_zhuce);
         dr.setOnClickListener(this);
         zc.setOnClickListener(this);
+        String name ="lucas";
+        VolleyUtil.getInstance().wode(name, new WodeCallBack() {
+
+            @Override
+            public void success(List<Customer> json) {
+                for (Customer customer :json){
+                    String name = customer.getName();
+                    Toast.makeText(DengRu.this,"....name"+name,Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void errr(String error) {
+
+            }
+        });
     }
 
     @Override
@@ -48,15 +69,18 @@ public class DengRu extends Activity implements View.OnClickListener {
             case R.id.bt_dengru:
                 String names = zh.getText().toString().trim();
                 String password = ma.getText().toString().trim();
-                Boolean yz = true;
+
 
                 VolleyUtil.getInstance().login(names, password, new LoginCallBack() {
                     @Override
                     public void success(String info) {
-                        yanzheng =new Yanzheng();
-                        yanzheng.setYanzheng(true);
-                        Intent intent = new Intent(DengRu.this,MainActivity.class);
-                        startActivity(intent);
+
+                        if(info.equals("ok")) {
+                            Intent intent = new Intent(DengRu.this, MainActivity.class);
+                            startActivity(intent);
+                        }else {
+                            Toast.makeText(DengRu.this, "账户或密码错误", Toast.LENGTH_SHORT).show();
+                        }
                     }
 
                     @Override
