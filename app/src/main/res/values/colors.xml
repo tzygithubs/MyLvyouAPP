@@ -6,4 +6,9 @@
     <color name="colorGrays">#c7c7c7</color>
     <color name="colorGray">#aeaeae</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="baise">#000000</color>
+    <color name="CANDYDANDY">#fc5163</color>
+    <color name="skyblue">#3c98fd</color>
+    <color name="lawngreen">#4ec72e</color>
+    <color name="orange">#fb971f</color>
 </resources>
