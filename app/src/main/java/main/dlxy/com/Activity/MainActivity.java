@@ -1,5 +1,6 @@
 package main.dlxy.com.Activity;
 
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
 
+import com.dlxy.Sqlite.DBHelper;
+import com.dlxy.Sqlite.DBManager;
 import com.dlxy.fragment.FaXianFragment;
 import com.dlxy.fragment.KeFuFragment;
 import com.dlxy.fragment.Shouyefragment;
@@ -25,14 +28,27 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
     private RadioGroup rg;
     private ArrayList<Fragment> fragmentlist;
 
+    DBManager dbManager;
+    DBHelper dbHelper;
+    SQLiteOpenHelper DB;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainactivity);
         initview();
+
+
     }
 
+
+
+
     private void initview() {
+         dbManager = new DBManager(this);
+        dbHelper = new DBHelper(this);
+        dbHelper.chaxunbiao();
         vp = findViewById(R.id.viewpager_main);
         rg = findViewById(R.id.radio_main);
         findViewById(R.id.radiobutton_shouye).setOnClickListener(this);

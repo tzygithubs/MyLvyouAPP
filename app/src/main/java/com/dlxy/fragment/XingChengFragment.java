@@ -1,6 +1,7 @@
 package com.dlxy.fragment;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,10 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.dlxy.MyAdapter.XingChengAdapter;
 
-import XcActivity.MuDe;
+import main.dlxy.com.Activity.DengRu;
+import main.dlxy.com.Activity.MuDe;
 import main.dlxy.com.mylvyouapp.R;
 
 
@@ -26,7 +29,7 @@ public class XingChengFragment extends Fragment {
     private int[] img ={R.mipmap.ic_launcher};
 
     private ListView listView1,listView2;
-    private XingChengAdapter adapter;
+    private XingChengAdapter adapter ,dbadapter;
     private android.widget.RelativeLayout relativeLayout;
 
     @Nullable
@@ -41,11 +44,19 @@ public class XingChengFragment extends Fragment {
     }
 
     private void initView(View v) {
+        SharedPreferences sp  = this.getActivity().getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
+        boolean b =  sp.getBoolean("boolean",false);
+        Toast.makeText(XingChengFragment.this.getActivity(),"..."+b,Toast.LENGTH_SHORT).show();
         listView1 = v.findViewById(R.id.item_xc_listView);
-        listView2 = v.findViewById(R.id.item_xc_listView1);
+
         relativeLayout = v.findViewById(R.id.relativeLayout1);
         adapter = new XingChengAdapter(v.getContext(),img);
-        listView2.setAdapter(adapter);
+        if(b==true){
+            listView1.setAdapter(dbadapter);
+        }if(b==false){
+            listView1.setAdapter(adapter);
+        }
+
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

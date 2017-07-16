@@ -24,4 +24,5 @@ public class Shouyefragment extends Fragment {
         }
         return view;
     }
+
 }

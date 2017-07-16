@@ -1,4 +1,4 @@
-package XcActivity;
+package main.dlxy.com.Activity;
 
 import android.app.Activity;
 import android.os.Bundle;

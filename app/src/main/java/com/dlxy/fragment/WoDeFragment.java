@@ -1,5 +1,6 @@
 package com.dlxy.fragment;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,12 +10,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.dlxy.Utils.VolleyUtil;
-import com.dlxy.domain.Customer;
 import com.dlxy.interfaces.WodeCallBack;
 
-import java.util.List;
-
+import main.dlxy.com.Activity.DengRu;
 import main.dlxy.com.mylvyouapp.R;
 
 /**
@@ -24,7 +25,7 @@ import main.dlxy.com.mylvyouapp.R;
 public class WoDeFragment extends Fragment {
     private  static final String TAG="WoDeFragment";
     private TextView tv;
-
+    SharedPreferences sp = null;
     public  View view;
     @Nullable
     @Override
@@ -39,12 +40,16 @@ public class WoDeFragment extends Fragment {
 
     private void initView(View view) {
         tv = view.findViewById(R.id.tv1);
-        String name ="lucas";
+        sp = this.getActivity().getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
+
+        String name =sp.getString("name",null);
         VolleyUtil.getInstance().wode(name, new WodeCallBack() {
 
             @Override
-            public void success(List<Customer> json) {
-
+            public void success(String json) {
+                JSONObject jsonObject = JSON.parseObject(json);
+                String name=  jsonObject.get("name").toString();
+                tv.setText(name);
             }
 
             @Override
@@ -53,6 +58,8 @@ public class WoDeFragment extends Fragment {
             }
         });
     }
+
+
 
 
 }

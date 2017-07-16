@@ -116,9 +116,8 @@ public class VolleyUtil {
         StringRequest wodejson = new StringRequest(Request.Method.POST, UserContents.wodeUrl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.i(TAG,"...re"+response.toString());
-                List<Customer> customers = JSON.parseArray(response,Customer.class);
-                wodeCallBack.success(customers);
+//                Log.i(TAG,"...re"+response.toString());
+                wodeCallBack.success(response);
 
             }
         }, new Response.ErrorListener() {
