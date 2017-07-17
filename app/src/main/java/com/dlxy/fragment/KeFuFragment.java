@@ -64,14 +64,11 @@ public class KeFuFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.radiobutton_shouhoukefu:
                 lv.setAdapter(arrayAdapters);
-                shouhou();
+
                 break;
         }
     }
 
-    private void shouhou() {
-
-    }
 
     private void shouqian() {
         lv.setAdapter(arrayAdapter);

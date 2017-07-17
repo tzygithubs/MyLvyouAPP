@@ -34,7 +34,7 @@ public class DBManager extends SQLiteOpenHelper {
          *
          *
          */
-        String sul = "create table "+DBcl.DATABASE_BIAOMING+"(_id  integer primary key autoincrement,name varchar, position varchar,jiner integer)";
+        String sul = "create table "+DBcl.DATABASE_BIAOMING+"(_id  integer primary key autoincrement,name varchar, text varchar,jiner integer)";
         DB.execSQL(sul);
 
     }

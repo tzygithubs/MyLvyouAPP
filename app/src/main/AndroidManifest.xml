@@ -21,6 +21,7 @@
         <activity android:name="main.dlxy.com.Activity.DengRu"/>
         <activity android:name="main.dlxy.com.Activity.ZhuCe"/>
         <activity android:name="main.dlxy.com.Activity.MuDe"/>
+        <activity android:name="main.dlxy.com.Activity.SheZhi"/>
     </application>
 
 </manifest>

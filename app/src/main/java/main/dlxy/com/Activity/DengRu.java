@@ -52,6 +52,9 @@ public class DengRu extends Activity implements View.OnClickListener {
         dr.setOnClickListener(this);
         zc.setOnClickListener(this);
         String name ="lucas";
+        Bundle b = getIntent().getExtras();
+        int n = b.getInt("position");
+        Toast.makeText(this,".............."+n,Toast.LENGTH_SHORT).show();
 
     }
 

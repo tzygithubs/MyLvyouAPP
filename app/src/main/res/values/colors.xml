@@ -11,6 +11,7 @@
     <color name="skyblue">#3c98fd</color>
     <color name="lawngreen">#4ec72e</color>
     <color name="orange">#fb971f</color>
+    <color name="red">	#FF0000</color>
 
 
 </resources>

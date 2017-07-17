@@ -1,5 +1,6 @@
 package com.dlxy.fragment;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,14 +18,16 @@ import com.dlxy.Utils.VolleyUtil;
 import com.dlxy.interfaces.WodeCallBack;
 
 import main.dlxy.com.Activity.DengRu;
+import main.dlxy.com.Activity.SheZhi;
 import main.dlxy.com.mylvyouapp.R;
 
 /**
  * Created by T on 2017/7/11.
  */
 
-public class WoDeFragment extends Fragment {
+public class WoDeFragment extends Fragment implements View.OnClickListener {
     private  static final String TAG="WoDeFragment";
+    private ImageView imgsz ;
     private TextView tv;
     SharedPreferences sp = null;
     public  View view;
@@ -39,6 +43,8 @@ public class WoDeFragment extends Fragment {
     }
 
     private void initView(View view) {
+        imgsz  =view.findViewById(R.id.shezhi);
+        imgsz.setOnClickListener(this);
         tv = view.findViewById(R.id.tv1);
         sp = this.getActivity().getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
 
@@ -60,6 +66,13 @@ public class WoDeFragment extends Fragment {
     }
 
 
-
-
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.shezhi:
+                Intent intent = new Intent(WoDeFragment.this.getActivity(),SheZhi.class);
+                startActivity(intent);
+                break;
+        }
+    }
 }

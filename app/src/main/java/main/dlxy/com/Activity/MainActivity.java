@@ -8,7 +8,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.dlxy.Sqlite.DBHelper;
 import com.dlxy.Sqlite.DBManager;
@@ -26,6 +28,8 @@ import main.dlxy.com.mylvyouapp.R;
 public class MainActivity extends FragmentActivity implements ViewPager.OnPageChangeListener, View.OnClickListener {
     private ViewPager vp;
     private RadioGroup rg;
+    private RadioButton wode;
+    private  int n;
     private ArrayList<Fragment> fragmentlist;
 
     DBManager dbManager;
@@ -37,7 +41,9 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainactivity);
+
         initview();
+
 
 
     }
@@ -55,7 +61,8 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         findViewById(R.id.radiobutton_xingcheng).setOnClickListener(this);
         findViewById(R.id.radiobutton_faxian).setOnClickListener(this);
         findViewById(R.id.radiobutton_kefu).setOnClickListener(this);
-        findViewById(R.id.radiobutton_wode).setOnClickListener(this);
+        wode= findViewById(R.id.radiobutton_wode);
+        wode.setOnClickListener(this);
         fragmentlist = new ArrayList<Fragment>();
         fragmentlist.add(new Shouyefragment());
         fragmentlist.add(new XingChengFragment());
@@ -75,7 +82,10 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         };
         vp.setAdapter(fragmentPagerAdapter);
         vp.addOnPageChangeListener(this);
-        rg.check(R.id.radiobutton_shouye);
+        rg.check(R.id.radiobutton_wode);
+        vp.setCurrentItem(4,true);
+
+        intent();
 
     }
 
@@ -83,6 +93,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         ViewGroup viewGroup = (ViewGroup) getWindow().getDecorView();
         viewGroup.removeAllViews();
         super.finish();
+
     }
 
     @Override
@@ -134,5 +145,24 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
             case R.id.radiobutton_wode:
                 vp.setCurrentItem(4,true);
         }
+    }
+    private void intent() {
+
+        try {
+            Bundle b ;
+            b = getIntent().getExtras();
+            String n = b.getString("name");
+
+            if (n.equals("shezhi")) {
+                rg.check(R.id.radiobutton_wode);
+                vp.setCurrentItem(4,true);
+                Toast.makeText(this,".............."+n,Toast.LENGTH_SHORT).show();
+            }
+
+//           Toast.makeText(this,".............."+n,Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

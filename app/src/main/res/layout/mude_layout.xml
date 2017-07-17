@@ -55,7 +55,7 @@
 
 
     <LinearLayout
-        android:id="@+id/radio_main"
+        android:id="@+id/radio_mains"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -73,9 +73,11 @@
             android:id="@+id/radioButton" />
 
         <TextView
+            android:id="@+id/textView23"
             style="@style/RadioButton"
             android:drawableTop="@mipmap/ic_wode_weichuxing"
-            android:text="目录"/>
+            android:text="目录" />
+
         <TextView
             style="@style/RadioButton"
             android:drawableTop="@mipmap/ic_wode_weichuxing"
