@@ -1,6 +1,7 @@
 package main.dlxy.com.Activity;
 
-import android.database.sqlite.SQLiteOpenHelper;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -10,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.dlxy.Sqlite.DBHelper;
 import com.dlxy.Sqlite.DBManager;
@@ -30,11 +30,12 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
     private RadioGroup rg;
     private RadioButton wode;
     private  int n;
+    SharedPreferences sp = null;
     private ArrayList<Fragment> fragmentlist;
 
     DBManager dbManager;
     DBHelper dbHelper;
-    SQLiteOpenHelper DB;
+    SQLiteDatabase db;
 
 
     @Override
@@ -45,16 +46,23 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         initview();
 
 
-
     }
 
 
 
 
     private void initview() {
-         dbManager = new DBManager(this);
+        dbManager = new DBManager(this);
         dbHelper = new DBHelper(this);
-        dbHelper.chaxunbiao();
+        sp = getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
+
+        String DATABASE_BIAOMING = sp.getString("name","123");
+
+
+            String sul = "create table if not exists "+DATABASE_BIAOMING+"(_id  integer primary key autoincrement,name varchar, jieshao varchar,jiner integer)";
+            db = dbManager.getWritableDatabase();
+            db.execSQL(sul);
+
         vp = findViewById(R.id.viewpager_main);
         rg = findViewById(R.id.radio_main);
         findViewById(R.id.radiobutton_shouye).setOnClickListener(this);
@@ -82,8 +90,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         };
         vp.setAdapter(fragmentPagerAdapter);
         vp.addOnPageChangeListener(this);
-        rg.check(R.id.radiobutton_wode);
-        vp.setCurrentItem(4,true);
+        rg.check(R.id.radiobutton_shouye);
 
         intent();
 
@@ -135,6 +142,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
                 break;
             case R.id.radiobutton_xingcheng:
                 vp.setCurrentItem(1,true);
+
                 break;
             case R.id.radiobutton_faxian:
                 vp.setCurrentItem(2,true);
@@ -156,7 +164,10 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
             if (n.equals("shezhi")) {
                 rg.check(R.id.radiobutton_wode);
                 vp.setCurrentItem(4,true);
-                Toast.makeText(this,".............."+n,Toast.LENGTH_SHORT).show();
+
+            }else {
+                rg.check(R.id.radiobutton_shouye);
+                vp.setCurrentItem(0,true);
             }
 
 //           Toast.makeText(this,".............."+n,Toast.LENGTH_SHORT).show();

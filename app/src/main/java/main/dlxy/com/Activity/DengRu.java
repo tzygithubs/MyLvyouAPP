@@ -3,7 +3,6 @@ package main.dlxy.com.Activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +13,6 @@ import android.widget.Toast;
 
 import com.dlxy.Sqlite.DBHelper;
 import com.dlxy.Sqlite.DBManager;
-import com.dlxy.Sqlite.DBcl;
 import com.dlxy.Utils.VolleyUtil;
 import com.dlxy.interfaces.LoginCallBack;
 
@@ -29,7 +27,7 @@ public class DengRu extends Activity implements View.OnClickListener {
     private Button dr;
     private EditText zh , ma ;
     private TextView zc;
-    boolean b;
+
     private DBHelper dbHelper;
     private DBManager dbManager;
     private SQLiteDatabase db;
@@ -52,9 +50,8 @@ public class DengRu extends Activity implements View.OnClickListener {
         dr.setOnClickListener(this);
         zc.setOnClickListener(this);
         String name ="lucas";
-        Bundle b = getIntent().getExtras();
-        int n = b.getInt("position");
-        Toast.makeText(this,".............."+n,Toast.LENGTH_SHORT).show();
+
+
 
     }
 
@@ -73,9 +70,17 @@ public class DengRu extends Activity implements View.OnClickListener {
                         if(info.equals("ok")) {
                             sp = getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
                             sp.edit().putString("name",names).putBoolean("boolean",true).commit();
-                            creation();
-
+                            String Bname = names;
+//                            boolean s = dbHelper.chaxunbiao();
+//                            Toast.makeText(DengRu.this,"....."+s,Toast.LENGTH_SHORT).show();
+//                            if (s==false){
+//                                String url ="create table "+ sp.getString("name",null)+"(_id  integer primary key autoincrement,name varchar, jieshao varchar,jiner integer)";
+//                                db.execSQL(url);
+//                            }
                             Intent intent = new Intent(DengRu.this, MainActivity.class);
+//                            Bundle b = new Bundle();
+//                            b.putString("name","123");
+//                            intent.putExtras(b);
                             startActivity(intent);
                         }else {
                             Toast.makeText(DengRu.this, "账户或密码错误", Toast.LENGTH_SHORT).show();
@@ -95,18 +100,5 @@ public class DengRu extends Activity implements View.OnClickListener {
         }
     }
 
-    private void creation() {
-        dbHelper = new DBHelper(this);
 
-        b = true;
-        Cursor c=db.rawQuery("SELECT count * FROM sqlite_master WHERE type='table' AND name='"+DBcl.DATABASE_BIAOMING+"'", null);
-        if(c.getInt(0)==0){
-            b=false;
-        }
-        if(b==false){
-            String sul = "create table "+ DBcl.DATABASE_BIAOMING+"(_id  integer primary key autoincrement,name varchar, position varchar,jiner integer)";
-            db.execSQL(sul);
-        }
-
-    }
 }

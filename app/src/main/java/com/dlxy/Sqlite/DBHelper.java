@@ -26,10 +26,10 @@ public class DBHelper {
 
     }
 
-    public void add(ShopCart shopcarts) {
-        String sql = "insert into "+DBcl.DATABASE_BIAOMING+" values (null,?,?,?)";
+    public void add(ShopCart shopcarts,String DATABASE_BIAOMING) {
+        String sql = "insert into "+DATABASE_BIAOMING+" values (null,?,?,?)";
 
-        db.execSQL(sql,new Object[] { shopcarts.getName()});
+        db.execSQL(sql,new Object[] { shopcarts.getName(),shopcarts.getJieshao(),shopcarts.getSum()});
 
     }
 
@@ -41,13 +41,34 @@ public class DBHelper {
     public void update(String name, ContentValues values) {
         db.update(""+DBcl.DATABASE_BIAOMING+"", values, "name=?", new String[] { name });
     }
-    public boolean chaxunbiao(){
-        boolean b = false;
-        Cursor c=db.rawQuery("SELECT count(*) FROM sqlite_master WHERE type='table' AND name='shca'", null);
+
+
+    public List<ShopCart> query(String DATABASE_BIAOMING) {
+        List<ShopCart> list = new ArrayList<ShopCart>();
+        String sqls = "select * from "+DATABASE_BIAOMING+"";
+        Cursor c = db.rawQuery(sqls, null);
+        while (c.moveToNext()) {
+            ShopCart shopCart = new ShopCart();
+            int id = c.getInt(c.getColumnIndex("_id"));
+            String name = c.getString(c.getColumnIndex("name"));
+            int jiage = c.getInt(c.getColumnIndex("jiner"));
+            String jieshao  =c.getString(c.getColumnIndex("jieshao"));
+
+            shopCart.setName(name);
+            shopCart.setSum(jiage);
+            shopCart.setJieshao(jieshao);
+            list.add(shopCart);
+        }
+        return list;
+    }
+
+    public boolean chaxunbiao(String DATABASE_BIAOMING){
+        boolean b = true;
+        Cursor c=db.rawQuery("SELECT count(*) FROM sqlite_master WHERE type='table' AND name='"+ DATABASE_BIAOMING+"'", null);
         if(c.moveToNext()){
             int count = c.getInt(0);
             if(count==0){
-                b= true;
+                b= false;
             }
         }
 
@@ -57,19 +78,4 @@ public class DBHelper {
         return  b;
     }
 
-    public List<ShopCart> query() {
-        List<ShopCart> list = new ArrayList<ShopCart>();
-        String sqls = "select * from "+DBcl.DATABASE_BIAOMING+"";
-        Cursor c = db.rawQuery(sqls, null);
-        while (c.moveToNext()) {
-            ShopCart shopCart = new ShopCart();
-            int id = c.getInt(c.getColumnIndex("_id"));
-            String name = c.getString(c.getColumnIndex("name"));
-
-            shopCart.setName(name);
-
-            list.add(shopCart);
-        }
-        return list;
-    }
 }

@@ -53,14 +53,15 @@ public class KeFuFragment extends Fragment implements View.OnClickListener {
         arrayAdapter = new ArrayAdapter<String>(this.getActivity(),R.layout.kefu_shipei_layout,kefu1);
         arrayAdapters = new ArrayAdapter<String>(this.getActivity(),R.layout.kefu_shipei_layout,kefu2);
         lv.setAdapter(arrayAdapter);
+
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.radiobutton_shoutiankefu:
+                lv.setAdapter(arrayAdapter);
 
-                shouqian();
                 break;
             case R.id.radiobutton_shouhoukefu:
                 lv.setAdapter(arrayAdapters);
@@ -70,7 +71,5 @@ public class KeFuFragment extends Fragment implements View.OnClickListener {
     }
 
 
-    private void shouqian() {
-        lv.setAdapter(arrayAdapter);
-    }
+
 }

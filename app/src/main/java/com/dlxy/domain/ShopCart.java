@@ -7,7 +7,7 @@ package com.dlxy.domain;
 public class ShopCart {
     private String name ;
     private int sum;
-    private String intro;
+    private String jieshao;
 
     public String getName() {
         return name;
@@ -25,11 +25,11 @@ public class ShopCart {
         this.sum = sum;
     }
 
-    public String getIntro() {
-        return intro;
+    public String getJieshao() {
+        return jieshao;
     }
 
-    public void setIntro(String intro) {
-        this.intro = intro;
+    public void setJieshao(String jieshao) {
+        this.jieshao = jieshao;
     }
 }

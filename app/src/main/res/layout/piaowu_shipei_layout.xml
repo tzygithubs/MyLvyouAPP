@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<TextView
+    android:id="@+id/piaowu_shipei_zuowei"
+    android:layout_width="wrap_content"
+    android:layout_height="60dp"
+    android:layout_weight="1"
+    android:text="阿斯顿"
+    android:textSize="30dp"
+    android:layout_margin="10dp"
+    android:gravity="center_horizontal"/>
+    <TextView
+        android:id="@+id/piaowu_shipei_jiage"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_weight="1"
+        android:textColor="@color/orange"
+        android:text="阿斯顿"
+        android:textSize="30dp"
+
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"/>
+    <TextView
+        android:id="@+id/piaowu_shipei_youpiao"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_weight="1"
+        android:text="阿斯顿"
+        android:textSize="30dp"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"/>
+    <TextView
+        android:id="@+id/piaowu_shipei_yuding"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_weight="1"
+        android:text="阿斯顿"
+        android:textSize="30dp"
+        android:layout_margin="10dp"
+        android:background="@color/orange"
+        android:gravity="center_horizontal"
+        />
+
+</LinearLayout>

@@ -31,11 +31,11 @@ public class DBManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase DB  ) {
         /**
-         *
+         * String sul = "create table "+DBcl.DATABASE_BIAOMING+"(_id  integer primary key autoincrement,name varchar, jieshao varchar,jiner integer)";
+         DB.execSQL(sul);
          *
          */
-        String sul = "create table "+DBcl.DATABASE_BIAOMING+"(_id  integer primary key autoincrement,name varchar, text varchar,jiner integer)";
-        DB.execSQL(sul);
+
 
     }
 

@@ -51,4 +51,9 @@
     <string name="faxian">发现</string>
     <string name="xin">新的行程</string>
     <string name="out">退出登入</string>
+    <string name="checi">车次详情</string>
+    <string name="youpiao">有票</string>
+    <string name="yuding">预订</string>
+    <string name="shanghai">上海虹桥站</string>
+    <string name="beijing">北京南站</string>
 </resources>
