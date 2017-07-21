@@ -1,15 +1,13 @@
-package com.dlxy.fragment;
+package main.dlxy.com.Activity;
 
-
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.dlxy.Dataorigin.Data;
 import com.dlxy.MyAdapter.PiaowuAdapter;
@@ -23,16 +21,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import main.dlxy.com.Activity.DengRu;
 import main.dlxy.com.mylvyouapp.R;
 
 /**
- * Created by T on 2017/7/11.
+ * Created by T on 2017/7/21.
  */
 
-public class FaXianFragment extends Fragment implements AdapterView.OnItemClickListener {
-    private static final String TAG ="FaXianFragment";
-    private View view;
+public class XiangQing extends Activity implements AdapterView.OnItemClickListener {
+
     private ListView lv;
 
     private String[] zuowei = Data.Zuowei;
@@ -40,20 +36,22 @@ public class FaXianFragment extends Fragment implements AdapterView.OnItemClickL
     private List<Map<String, Object>> list;
     private PiaowuAdapter piaowuAdapter = null;
     DBHelper dbHelper =null;
-
-
-    @Nullable
+    private String chushi;
+    private String zhongdian;
+    private String piao ;
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        if (view == null) {
-            view = inflater.inflate(R.layout.shangping_piaowu_layout, container, false);
-        }
-        init(view);
-        return view;
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.shangping_piaowu_layout);
+        Bundle b = getIntent().getExtras();
+        chushi = b.getString("C");
+        zhongdian = b.getString("Z");
+        piao = b.getString("P");
+        initView();
     }
 
-    private void init(View view) {
-        lv= view.findViewById(R.id.piaowu_lv);
+    private void initView() {
+        lv= findViewById(R.id.piaowu_lv);
         SimpleDateFormat sdf = new SimpleDateFormat("MMdd");
         Date curDate  = new Date(System.currentTimeMillis());
         String str = sdf.format(curDate);
@@ -67,23 +65,24 @@ public class FaXianFragment extends Fragment implements AdapterView.OnItemClickL
             map.put("yuding","预订");
             list.add(map);
         }
-        piaowuAdapter = new PiaowuAdapter(this.getActivity(),list);
+        piaowuAdapter = new PiaowuAdapter(this,list);
         lv.setAdapter(piaowuAdapter);
         lv.setOnItemClickListener(this);
 
-
     }
-
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        dbHelper = new DBHelper(this.getActivity());
+        dbHelper = new DBHelper(this);
         ShopCart shopCart = new ShopCart();
-        shopCart.setName("火车票");
+        shopCart.setName(piao);
         shopCart.setSum(jiage[i]);
         shopCart.setJieshao(list.get(i).get("zuowei").toString());
-        SharedPreferences sp = this.getActivity().getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
+        shopCart.setKaishi(chushi);
+        shopCart.setZhongdian(zhongdian);
+        SharedPreferences sp = getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
         String DATABASE_BIAOMING = sp.getString("name","123");
         dbHelper.add(shopCart ,DATABASE_BIAOMING);
+        Toast.makeText(XiangQing.this,"添加成功",Toast.LENGTH_SHORT).show();
     }
 }

@@ -10,6 +10,9 @@ public class UserContents {
     public static final String loginUrl = baseUrl + "queryUser.do";
     public static final String registUrl = baseUrl + "addUser.do";
     public static final String wodeUrl = baseUrl+"queryUserWithName.do";
+    public static final String imageUrl = baseUrl + "images/naichamei.jpg";
+    public static final String imageGetUrl = baseUrl + "ImageGetServlet";
+    public static final String huodeyonghu = baseUrl+"queryUserWithName.do";
 
     public static final String ok = "ok";
     public static final String error = "error";

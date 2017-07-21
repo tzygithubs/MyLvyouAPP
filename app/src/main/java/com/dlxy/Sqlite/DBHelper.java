@@ -27,9 +27,9 @@ public class DBHelper {
     }
 
     public void add(ShopCart shopcarts,String DATABASE_BIAOMING) {
-        String sql = "insert into "+DATABASE_BIAOMING+" values (null,?,?,?)";
+        String sql = "insert into "+DATABASE_BIAOMING+" values (null,?,?,?,?,?)";
 
-        db.execSQL(sql,new Object[] { shopcarts.getName(),shopcarts.getJieshao(),shopcarts.getSum()});
+        db.execSQL(sql,new Object[] { shopcarts.getName(),shopcarts.getJieshao(),shopcarts.getSum(),shopcarts.getKaishi(),shopcarts.getZhongdian()});
 
     }
 
@@ -53,10 +53,13 @@ public class DBHelper {
             String name = c.getString(c.getColumnIndex("name"));
             int jiage = c.getInt(c.getColumnIndex("jiner"));
             String jieshao  =c.getString(c.getColumnIndex("jieshao"));
-
+            String kaishi = c.getString(c.getColumnIndex("kaishi"));
+            String zhongdian = c.getString(c.getColumnIndex("zhongdian"));
             shopCart.setName(name);
             shopCart.setSum(jiage);
             shopCart.setJieshao(jieshao);
+            shopCart.setKaishi(kaishi);
+            shopCart.setZhongdian(zhongdian);
             list.add(shopCart);
         }
         return list;

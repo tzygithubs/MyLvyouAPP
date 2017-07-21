@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/adsadad"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@color/colorAccent"/>
+
+    <RadioGroup
+        android:id="@+id/syxq_group_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/baise"
+        >
+
+        <RadioButton
+            android:id="@+id/id_fenji_shouyeXiangQingg_layout"
+            style="@style/ShouyeXiangQingg_RadioButton"
+            android:text="@string/huochepia"/>
+        <RadioButton
+            android:id="@+id/id_huoche_shouyeXiangQingg_layout"
+            style="@style/ShouyeXiangQingg_RadioButton"
+            android:text="@string/fenjipia"/>
+        <RadioButton
+            android:id="@+id/id_qiche_shouyeXiangQingg_layout"
+            style="@style/ShouyeXiangQingg_RadioButton"
+            android:text="@string/qichepia"/>
+        <RadioButton
+            android:id="@+id/id_tejia_shouyeXiangQingg_layout"
+            style="@style/ShouyeXiangQingg_RadioButton"
+            android:text="@string/tejiapia"/>
+
+    </RadioGroup>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/syxq_pager_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        />
+
+</LinearLayout>
+

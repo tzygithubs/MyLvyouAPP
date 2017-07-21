@@ -3,6 +3,7 @@
     package="main.dlxy.com.mylvyouapp">
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:name="com.dlxy.myApplication.MyApplication"
         android:allowBackup="true"
@@ -11,17 +12,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="main.dlxy.com.Activity.MainActivity">
+        <activity android:name="main.dlxy.com.Activity.DengRu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="main.dlxy.com.Activity.DengRu"/>
+        <activity android:name="main.dlxy.com.Activity.MainActivity"/>
         <activity android:name="main.dlxy.com.Activity.ZhuCe"/>
         <activity android:name="main.dlxy.com.Activity.MuDe"/>
         <activity android:name="main.dlxy.com.Activity.SheZhi"/>
+        <activity android:name="main.dlxy.com.Activity.SYXQActivity"/>
+        <activity android:name="main.dlxy.com.Activity.PinBing"/>
+        <activity android:name="com.dlxy.RiLi.Rlactivity"/>
+        <activity android:name="main.dlxy.com.Activity.XiangQing"/>
+
+        <provider
+            android:authorities="main.dlxy.com.mylvyouapp.myProvider"
+            android:name="android.support.v4.content.FileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false"
+            >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths"
+                />
+        </provider>
     </application>
+
+
 
 </manifest>

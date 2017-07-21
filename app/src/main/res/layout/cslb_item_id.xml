@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11:11"
+            android:layout_margin="10dp"
+            android:id="@+id/tv_11111"
+            android:textSize="20sp"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="西安"
+            android:padding="10dp"
+            android:id="@+id/xian_item_id"
+            android:layout_below="@+id/tv_11111"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="硬座:100张"
+            android:textSize="10sp"
+            android:id="@+id/yingzhuang_id"
+            android:layout_below="@+id/xian_item_id"
+            android:padding="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/orange"
+            android:text="￥100"
+            android:textSize="20sp"
+            android:id="@+id/qiangjing_id"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="无座:360张"
+            android:textSize="10sp"
+            android:id="@+id/wuz_id"
+            android:layout_below="@+id/xian_item_id"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="13时11分"
+            android:layout_marginTop="15dp"
+            android:id="@+id/shijian_id"
+            android:layout_toRightOf="@+id/tv_11111"/>
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="14:00"
+            android:layout_margin="10dp"
+            android:id="@+id/chufashi_id"
+            android:textSize="20sp"
+            android:layout_toLeftOf="@+id/qiangjing_id"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="西安西"
+            android:gravity="center"
+            android:layout_below="@+id/chufashi_id"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/view_id"
+            android:layout_toLeftOf="@+id/wuz_id"
+            android:id="@+id/xianxi_id" />
+
+        <View
+            android:layout_width="80dp"
+            android:layout_height="1dp"
+            android:id="@+id/view_id"
+            android:background="@color/baise"
+            android:layout_below="@+id/shijian_id"
+            android:layout_toRightOf="@+id/xian_item_id"
+            android:layout_marginLeft="30dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="K4630"
+            android:layout_below="@+id/view_id"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/ke_id"
+            android:layout_toRightOf="@+id/xian_item_id"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="软卧:0张"
+            android:layout_toRightOf="@+id/yingzhuang_id"
+            android:layout_marginLeft="25dp"
+            android:layout_below="@+id/ke_id"
+            android:layout_marginTop="40dp"
+            android:textSize="10sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="硬卧:0张"
+            android:layout_toLeftOf="@+id/wuz_id"
+            android:layout_below="@+id/xianxi_id"
+            android:layout_marginRight="45dp"
+            android:layout_marginTop="20dp"
+            android:textSize="10sp"
+            />
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/colorGray"/>
+
+</LinearLayout>

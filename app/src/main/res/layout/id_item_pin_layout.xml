@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:src="@mipmap/left_arrow"/>
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:id="@+id/qing"
+            android:layout_alignParentRight="true"
+            android:text="@string/qiang"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/id_tv_layout_item"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+            android:layout_toLeftOf="@+id/btnNext"
+            android:layout_toRightOf="@+id/btnPrev"
+            android:layout_centerVertical="true"
+            android:text="@string/cs"/>
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/home_rg"
+        style="@style/home_navi_radiogroup"
+
+        android:background="@color/colorPrimary"
+        >
+        <RadioButton
+            android:id="@+id/home_rb_index"
+            style="@style/home_navi_radiobutton"
+            android:text="@string/hc"
+            android:textColor="@drawable/chepiao"
+
+            />
+        <RadioButton
+            android:id="@+id/home_rb_category"
+            style="@style/home_navi_radiobutton"
+            android:text="@string/fenj"
+            android:textColor="@drawable/chepiao"
+            />
+        <RadioButton
+            android:id="@+id/home_rb_cart"
+            style="@style/home_navi_radiobutton"
+            android:text="@string/qic"
+            android:textColor="@drawable/chepiao"
+            />
+
+        <RadioButton
+            android:id="@+id/home_rb_mine"
+            style="@style/home_navi_radiobutton"
+            android:text="@string/tj"
+            android:textColor="@drawable/chepiao"
+            />
+    </RadioGroup>
+    <ListView
+        android:id="@+id/PinBing_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+</LinearLayout>

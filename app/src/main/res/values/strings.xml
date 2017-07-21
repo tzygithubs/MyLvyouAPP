@@ -56,4 +56,20 @@
     <string name="yuding">预订</string>
     <string name="shanghai">上海虹桥站</string>
     <string name="beijing">北京南站</string>
+    <string name="window_paizhao">拍照</string>
+    <string name="window_xiangce">从相册选择</string>
+    <string name="window_quxiao">取消</string>
+    <string name="huochepia">火车票</string>
+    <string name="qichepia">汽车票</string>
+    <string name="fenjipia">飞机票</string>
+    <string name="tejiapia">特价票</string>
+
+    <string name="chax">查询</string>
+
+    <string name="cs">城市</string>
+    <string name="qiang">抢票</string>
+    <string name="hc">火车</string>
+    <string name="fenj">飞机</string>
+    <string name="qic">汽车</string>
+    <string name="tj">特价票</string>
 </resources>

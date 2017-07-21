@@ -52,17 +52,21 @@ public class SQLiteXingCheng extends BaseAdapter {
             hodleViewl.name = view.findViewById(R.id.xc_name);
             hodleViewl.sum = view.findViewById(R.id.xc_sum);
             hodleViewl.jieshao = view.findViewById(R.id.xc_jieshao);
+            hodleViewl.kaishi = view.findViewById(R.id.xc_kaishi);
+            hodleViewl.zhongdian = view.findViewById(R.id.xc_zhongdian);
             view.setTag(hodleViewl);
 
         }else {
             hodleViewl = (HodleViewl) view.getTag();
         }
         hodleViewl.name.setText(list.get(i).getName());
-        hodleViewl.sum.setText(list.get(i).getSum());
-        hodleViewl.sum.setText(list.get(i).getJieshao());
+       // hodleViewl.sum.setText(list.get(i).getSum());
+        hodleViewl.jieshao.setText(list.get(i).getJieshao());
+        hodleViewl.kaishi.setText(list.get(i).getKaishi());
+        hodleViewl.zhongdian.setText(list.get(i).getZhongdian());
         return view;
     }
     class HodleViewl {
-        TextView name,sum,jieshao;
+        TextView name,sum,jieshao,kaishi,zhongdian;
     }
 }

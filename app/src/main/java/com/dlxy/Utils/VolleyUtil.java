@@ -10,6 +10,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.dlxy.contents.UserContents;
 import com.dlxy.domain.Customer;
+import com.dlxy.interfaces.HuoQUBack;
 import com.dlxy.interfaces.LoginCallBack;
 import com.dlxy.interfaces.MyCallBack;
 import com.dlxy.interfaces.RegistCallBack;
@@ -136,7 +137,21 @@ public class VolleyUtil {
         MyApplication.getRequestQueue().add(wodejson);
     }
 
-
+    public void huoqu(final String name , final HuoQUBack huoQUBack){
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, UserContents.huodeyonghu, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                huoQUBack.success(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.i(TAG,"..........0失败");
+            }
+        });
+        stringRequest.setTag(VOLLEY_TAG);
+        MyApplication.getRequestQueue().add(stringRequest);
+    }
 
 
 }

@@ -62,9 +62,11 @@ public class XingChengFragment extends Fragment {
         if(b==true){
             sp = this.getActivity().getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
             dbHelper = new DBHelper(this.getActivity());
-            String Bname = sp.getString("name","NAMEs");
+
             String DATABASE_BIAOMING = sp.getString("name","123");
             list =  dbHelper.query( DATABASE_BIAOMING);
+//             int o = list.get(1).getSum();
+//            Toast.makeText(XingChengFragment.this.getActivity(),o,Toast.LENGTH_SHORT).show();
             dbadapter = new SQLiteXingCheng(this.getActivity(),list);
             listView1.setAdapter(dbadapter);
         }if(b==false){
@@ -78,6 +80,7 @@ public class XingChengFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
     }
 
 

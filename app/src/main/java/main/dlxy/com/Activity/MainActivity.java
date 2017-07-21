@@ -14,7 +14,6 @@ import android.widget.RadioGroup;
 
 import com.dlxy.Sqlite.DBHelper;
 import com.dlxy.Sqlite.DBManager;
-import com.dlxy.fragment.FaXianFragment;
 import com.dlxy.fragment.KeFuFragment;
 import com.dlxy.fragment.Shouyefragment;
 import com.dlxy.fragment.WoDeFragment;
@@ -54,27 +53,33 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
     private void initview() {
         dbManager = new DBManager(this);
         dbHelper = new DBHelper(this);
-        sp = getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
 
-        String DATABASE_BIAOMING = sp.getString("name","123");
+        try {
+            sp = getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
+            String DATABASE_BIAOMING = sp.getString("name","123");
 
 
-            String sul = "create table if not exists "+DATABASE_BIAOMING+"(_id  integer primary key autoincrement,name varchar, jieshao varchar,jiner integer)";
+            String sul = "create table if not exists "+DATABASE_BIAOMING+"(_id  integer primary key autoincrement,name varchar, jieshao varchar,jiner integer,kaishi varchar , zhongdian varchar )";
             db = dbManager.getWritableDatabase();
             db.execSQL(sul);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
 
         vp = findViewById(R.id.viewpager_main);
         rg = findViewById(R.id.radio_main);
         findViewById(R.id.radiobutton_shouye).setOnClickListener(this);
         findViewById(R.id.radiobutton_xingcheng).setOnClickListener(this);
-        findViewById(R.id.radiobutton_faxian).setOnClickListener(this);
+
         findViewById(R.id.radiobutton_kefu).setOnClickListener(this);
         wode= findViewById(R.id.radiobutton_wode);
         wode.setOnClickListener(this);
         fragmentlist = new ArrayList<Fragment>();
         fragmentlist.add(new Shouyefragment());
         fragmentlist.add(new XingChengFragment());
-        fragmentlist.add(new FaXianFragment());
+
         fragmentlist.add(new KeFuFragment());
         fragmentlist.add(new WoDeFragment());
         FragmentPagerAdapter fragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
@@ -122,13 +127,11 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         case 1:
             rg.check(R.id.radiobutton_xingcheng);
             break;
+
         case 2:
-            rg.check(R.id.radiobutton_faxian);
-            break;
-        case 3:
             rg.check(R.id.radiobutton_kefu);
             break;
-        case 4:
+        case 3:
             rg.check(R.id.radiobutton_wode);
             break;
     }
@@ -144,14 +147,12 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
                 vp.setCurrentItem(1,true);
 
                 break;
-            case R.id.radiobutton_faxian:
+
+            case R.id.radiobutton_kefu:
                 vp.setCurrentItem(2,true);
                 break;
-            case R.id.radiobutton_kefu:
-                vp.setCurrentItem(3,true);
-                break;
             case R.id.radiobutton_wode:
-                vp.setCurrentItem(4,true);
+                vp.setCurrentItem(3,true);
         }
     }
     private void intent() {
@@ -174,6 +175,12 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
 
     }
 }

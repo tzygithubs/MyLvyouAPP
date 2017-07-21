@@ -33,12 +33,7 @@
             android:background="@mipmap/xingcheng"
 
             />
-        <RadioButton
-            android:id="@+id/radiobutton_faxian"
-            style="@style/RadioButton"
-            android:background="@mipmap/faxian"
 
-            />
         <RadioButton
             android:id="@+id/radiobutton_kefu"
             style="@style/RadioButton"
