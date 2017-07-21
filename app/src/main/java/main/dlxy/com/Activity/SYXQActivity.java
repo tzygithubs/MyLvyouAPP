@@ -57,6 +57,7 @@ public class SYXQActivity extends FragmentActivity implements View.OnClickListen
         fragmentList.add(new FenJiFrament());
         fragmentList.add(new HuoCheFragment());
         fragmentList.add(new QiCheFragment());
+
         fragmentList.add(new TeJiaFragment());
 
         viewPager.setAdapter(new FragmentPagerAdapter(this.getSupportFragmentManager()) {
