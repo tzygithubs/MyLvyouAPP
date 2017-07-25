@@ -60,7 +60,7 @@ public class VolleyUtil {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, UserContents.loginUrl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
+                Log.i(TAG,"...re"+response);
                 if (response.equals(UserContents.ok)){
                         loginCallBack.success(UserContents.ok);
                 }else {

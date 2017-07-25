@@ -78,7 +78,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         wode.setOnClickListener(this);
         fragmentlist = new ArrayList<Fragment>();
         fragmentlist.add(new Shouyefragment());
-        fragmentlist.add(new XingChengFragment());
+        fragmentlist.add(new XingChengFragment(this));
 
         fragmentlist.add(new KeFuFragment());
         fragmentlist.add(new WoDeFragment());

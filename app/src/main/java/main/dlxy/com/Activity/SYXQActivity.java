@@ -4,19 +4,16 @@ package main.dlxy.com.Activity;
  * Created by T on 2017/7/20.
  */
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.RadioGroup;
-
-import com.dlxy.fragment.FenJiFrament;
-import com.dlxy.fragment.HuoCheFragment;
-import com.dlxy.fragment.QiCheFragment;
-import com.dlxy.fragment.TeJiaFragment;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,11 +24,15 @@ import main.dlxy.com.mylvyouapp.R;
  * Created by Administrator on 2017/7/18.
  */
 
-public class SYXQActivity extends FragmentActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
+public class SYXQActivity extends Activity implements View.OnClickListener {
+    private Spinner spinner, spinner1;
     private RadioGroup radioGroup;
-    private ViewPager viewPager;
-    private List<Fragment> fragmentList;
-    private int position;
+    private TextView text;
+    String names ;
+    private ArrayAdapter adpter;
+    private Button button;
+    private String n , m,k;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,95 +42,72 @@ public class SYXQActivity extends FragmentActivity implements View.OnClickListen
     }
 
     private void initView() {
-
+        spinner = findViewById(R.id.id_spinner_layout);
+        spinner1 = findViewById(R.id.id_spinner1_layout);
         radioGroup = findViewById(R.id.syxq_group_layout);
-        viewPager = findViewById(R.id.syxq_pager_layout);
-        getIntent();
-        findViewById(R.id.id_fenji_shouyeXiangQingg_layout).setOnClickListener(this);
+        text = findViewById(R.id.id_text_shouyexiangqing);
+        findViewById(R.id.id_btn_layout_item).setOnClickListener(this);
+        findViewById(R.id.id_feiji_shouyeXiangQingg_layout).setOnClickListener(this);
         findViewById(R.id.id_huoche_shouyeXiangQingg_layout).setOnClickListener(this);
         findViewById(R.id.id_qiche_shouyeXiangQingg_layout).setOnClickListener(this);
         findViewById(R.id.id_tejia_shouyeXiangQingg_layout).setOnClickListener(this);
+        final List<String> dataList = new ArrayList<String>();
+        dataList.add("北京");
+        dataList.add("济南");
+        dataList.add("青岛");
+        dataList.add("天津");
+        dataList.add("江苏");
+        adpter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dataList);
+        adpter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adpter);
+        spinner1.setAdapter(adpter);
+
 
         Bundle b = getIntent().getExtras();
-        position = b.getInt("name");
+        names = b.getString("name");
+        text.setText(names);
 
-        fragmentList = new ArrayList<Fragment>();
-        fragmentList.add(new FenJiFrament());
-        fragmentList.add(new HuoCheFragment());
-        fragmentList.add(new QiCheFragment());
-
-        fragmentList.add(new TeJiaFragment());
-
-        viewPager.setAdapter(new FragmentPagerAdapter(this.getSupportFragmentManager()) {
-            @Override
-            public Fragment getItem(int position) {
-                return fragmentList.get(position);
-            }
-
-            @Override
-            public int getCount() {
-                return fragmentList.size();
-            }
-        });
-        viewPager.setOnPageChangeListener(this);
-        if(position == 0){
-            radioGroup.check(R.id.id_fenji_shouyeXiangQingg_layout);
-            viewPager.setCurrentItem(0,true);
-        }else if(position ==1){
+        if (names.equals("火车票")){
             radioGroup.check(R.id.id_huoche_shouyeXiangQingg_layout);
-            viewPager.setCurrentItem(1,true);
-        }else if(position ==2){
+        }else if( names.equals("机票")) {
+            radioGroup.check(R.id.id_feiji_shouyeXiangQingg_layout);
+        }else if(names.equals("汽车票") || names.equals("专车.租车")){
             radioGroup.check(R.id.id_qiche_shouyeXiangQingg_layout);
-            viewPager.setCurrentItem(1,true);
-        }else if(position ==3){
+            text.setText("汽车票");
+        }else if (names.equals("特价机票") ){
             radioGroup.check(R.id.id_tejia_shouyeXiangQingg_layout);
-            viewPager.setCurrentItem(1,true);
         }
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.id_fenji_shouyeXiangQingg_layout:
-                viewPager.setCurrentItem(0,true);
-                break;
+        switch (view.getId()) {
             case R.id.id_huoche_shouyeXiangQingg_layout:
-                viewPager.setCurrentItem(1,true);
+                text.setText("火车票");
+                break;
+            case R.id.id_feiji_shouyeXiangQingg_layout:
+                text.setText("飞机票");
                 break;
             case R.id.id_qiche_shouyeXiangQingg_layout:
-                viewPager.setCurrentItem(2,true);
+                text.setText("汽车票");
                 break;
             case R.id.id_tejia_shouyeXiangQingg_layout:
-                viewPager.setCurrentItem(3,true);
+                text.setText("特价机票");
+                break;
+            case R.id.id_btn_layout_item:
+                Intent intent = new Intent(SYXQActivity.this,PinBing.class);
+                n =spinner.getSelectedItem().toString();
+                m=spinner1.getSelectedItem().toString();
+                k= text.getText().toString();
+                Bundle b = new Bundle();
+                b.putString("NAME",n);
+                b.putString("name",m);
+                b.putString("piao",k);
+               // Toast.makeText(SYXQActivity.this,".....+++"+k,Toast.LENGTH_SHORT).show();
+                intent.putExtras(b);
+                startActivity(intent);
                 break;
         }
-    }
-
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-        switch (position){
-            case 0:
-                radioGroup.check(R.id.id_fenji_shouyeXiangQingg_layout);
-                break;
-            case 1:
-                radioGroup.check(R.id.id_huoche_shouyeXiangQingg_layout);
-                break;
-            case 2:
-                radioGroup.check(R.id.id_qiche_shouyeXiangQingg_layout);
-                break;
-            case 3:
-                radioGroup.check(R.id.id_tejia_shouyeXiangQingg_layout);
-                break;
-
-        }
-    }
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
     }
 }

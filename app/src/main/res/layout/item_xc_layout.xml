@@ -1,38 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    >
-    <LinearLayout
+<!--<ScrollView-->
+    <!---->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:gravity="center"-->
+    <!--android:orientation="vertical"-->
+    <!--&gt;-->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
+
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_weight="1"
             >
             <ListView
                 android:id="@+id/item_xc_listView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="436dp"
                 />
-
-        </LinearLayout>
-        <View
+        <Button
+            android:id="@+id/item_btn_shanchu"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorGray"
-            android:layout_marginTop="5dp"/>
+            android:layout_height="wrap_content"
+            android:text="删除"/>
+        </LinearLayout>
+        <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp"-->
+            <!--android:background="@color/colorGray"-->
+            <!--android:layout_marginTop="5dp"/>-->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_weight="10"
             android:gravity="center">
 
             <TextView
@@ -53,60 +59,7 @@
 
         </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginTop="15dp"
-            android:id="@+id/relativeLayout1">
-            <TextView
-                android:id="@+id/tv_xc_layout"
-                android:layout_marginTop="2dp"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:text="阿萨德撒多阿萨德撒多撒多阿瓦达..."
-                android:textSize="20sp"
-                android:textColor="@color/baise"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                />
-
-            <TextView
-                android:id="@+id/tv1_xc_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="阿萨德撒多阿萨德撒多撒多"
-                android:textSize="15sp"
-                android:textColor="@color/colorGray"
-                android:layout_marginLeft="10dp"
-                android:layout_below="@+id/tv_xc_layout"
-                android:layout_marginTop="15dp"
-                />
-
-            <TextView
-                android:id="@+id/tv2_xc_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="10dp"
-                android:text="美食林推荐"/>
-
-            <ImageView
-                android:layout_width="180dp"
-                android:layout_height="100dp"
-                android:src="@mipmap/jb"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:id="@+id/imageView12" />
-        </RelativeLayout>
-
-
-
-
-
-
 
 
     </LinearLayout>
-</ScrollView>
+<!--</ScrollView>-->

@@ -7,42 +7,78 @@
     <ImageView
         android:id="@+id/adsadad"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
         android:src="@color/colorAccent"/>
 
     <RadioGroup
         android:id="@+id/syxq_group_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="@color/baise"
-        >
+        android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/id_fenji_shouyeXiangQingg_layout"
-            style="@style/ShouyeXiangQingg_RadioButton"
-            android:text="@string/huochepia"/>
         <RadioButton
             android:id="@+id/id_huoche_shouyeXiangQingg_layout"
             style="@style/ShouyeXiangQingg_RadioButton"
-            android:text="@string/fenjipia"/>
+            android:text="@string/huochepia" />
+
+        <RadioButton
+            android:id="@+id/id_feiji_shouyeXiangQingg_layout"
+            style="@style/ShouyeXiangQingg_RadioButton"
+            android:text="@string/fenjipia" />
+
         <RadioButton
             android:id="@+id/id_qiche_shouyeXiangQingg_layout"
             style="@style/ShouyeXiangQingg_RadioButton"
-            android:text="@string/qichepia"/>
+            android:text="@string/qichepia" />
+
         <RadioButton
             android:id="@+id/id_tejia_shouyeXiangQingg_layout"
             style="@style/ShouyeXiangQingg_RadioButton"
-            android:text="@string/tejiapia"/>
+            android:text="@string/tejiapia" />
 
     </RadioGroup>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/syxq_pager_layout"
+    <!--<android.support.v4.view.ViewPager-->
+        <!--android:id="@+id/syxq_pager_layout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--/>-->
+<TextView
+    android:id="@+id/id_text_shouyexiangqing"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:textSize="35dp"
+    android:gravity="center_horizontal"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Spinner
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:id="@+id/id_spinner_layout"
+            android:layout_alignParentLeft="true"
+
+            />
+        <Spinner
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:id="@+id/id_spinner1_layout"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+
+
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        />
+        android:id="@+id/id_btn_layout_item"
+        android:background="@color/orange"
+        android:text="@string/chax"/>
+
 
 </LinearLayout>
 

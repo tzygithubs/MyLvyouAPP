@@ -4,5 +4,10 @@
     android:layout_height="match_parent">
 
 
+    <main.dlxy.com.Activity.QQListView
+        android:id="@+id/id_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </main.dlxy.com.Activity.QQListView>
 
 </LinearLayout>

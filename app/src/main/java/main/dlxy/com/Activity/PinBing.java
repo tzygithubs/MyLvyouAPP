@@ -5,6 +5,7 @@ package main.dlxy.com.Activity;
  */
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -41,9 +42,23 @@ public class PinBing extends FragmentActivity implements View.OnClickListener, A
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.id_item_pin_layout);
-        Bundle bundle = getIntent().getExtras();
-        chushi = bundle.getString("NAME");
-        zhongdian= bundle.getString("name");
+
+
+        try {
+            Bundle  bundle = getIntent().getExtras();
+            chushi = bundle.getString("NAME");
+            zhongdian= bundle.getString("name");
+            piao = bundle.getString("piao");
+            SharedPreferences sp = getSharedPreferences("didian",PinBing.MODE_PRIVATE);
+            sp.edit().putString("chu",chushi).putString("zhong",zhongdian).putString("piao",piao).commit();
+        } catch (Exception e) {
+            SharedPreferences sp  =getSharedPreferences("didian",PinBing.MODE_PRIVATE);
+            chushi=sp.getString("chu","北京");
+            zhongdian=sp.getString("zhong","北京");
+            piao = sp.getString("piao","火车票");
+        }
+
+
         //Toast.makeText(PinBing.this,"....."+chushi+zhongdian,Toast.LENGTH_SHORT).show();
         initView();
     }
@@ -61,7 +76,15 @@ public class PinBing extends FragmentActivity implements View.OnClickListener, A
         adapter = new HCAdapter(this,shuju,shuju1,shuju2,shuju3);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
-        piao = "火车";
+        if(piao.equals("火车票")){
+            radioGroup.check( R.id.home_rb_index);
+        }else if (piao.equals("飞机票")){
+            radioGroup.check(R.id.home_rb_category);
+        }else if (piao.equals("汽车票")){
+            radioGroup.check(R.id.home_rb_cart);
+        }else if (piao.equals("特价机票")){
+            radioGroup.check(R.id.home_rb_mine);
+        }
     }
 
     @Override
@@ -70,25 +93,25 @@ public class PinBing extends FragmentActivity implements View.OnClickListener, A
             case R.id.home_rb_index:
                 adapter = new HCAdapter(this,shuju,shuju1,shuju2,shuju3);
                 listView.setAdapter(adapter);
-                piao = "火车";
+                piao = "火车票";
                 return;
 
              case R.id.home_rb_category:
                 adapter = new HCAdapter(this,shuju1,shuju1,shuju2,shuju3);
                 listView.setAdapter(adapter);
-                 piao = "飞机";
+                 piao = "飞机票";
                 return;
 
              case R.id.home_rb_cart:
                 adapter = new HCAdapter(this,shuju2,shuju1,shuju2,shuju3);
                 listView.setAdapter(adapter);
-                 piao = "汽车";
+                 piao = "汽车票";
                 return;
 
              case R.id.home_rb_mine:
                 adapter = new HCAdapter(this,shuju3,shuju1,shuju2,shuju3);
                 listView.setAdapter(adapter);
-                 piao = "特价";
+                 piao = "特价机票";
                 return;
 
 
@@ -105,4 +128,6 @@ public class PinBing extends FragmentActivity implements View.OnClickListener, A
         intent.putExtras(b);
         startActivity(intent);
     }
+
+
 }

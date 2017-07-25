@@ -33,8 +33,9 @@ public class DBHelper {
 
     }
 
-    public void delete(String name) {
-        db.delete(""+DBcl.DATABASE_BIAOMING+"", "name=?", new String[] { name });
+    public void delete(String name ,String DATABASE_BIAOMING ) {
+
+        db.delete(""+DATABASE_BIAOMING+"", "name=?", new String[] { name} );
 
     }
 
@@ -65,20 +66,5 @@ public class DBHelper {
         return list;
     }
 
-    public boolean chaxunbiao(String DATABASE_BIAOMING){
-        boolean b = true;
-        Cursor c=db.rawQuery("SELECT count(*) FROM sqlite_master WHERE type='table' AND name='"+ DATABASE_BIAOMING+"'", null);
-        if(c.moveToNext()){
-            int count = c.getInt(0);
-            if(count==0){
-                b= false;
-            }
-        }
-
-        c.close();
-        db.close();
-        Log.i(TAG,"..............."+b);
-        return  b;
-    }
 
 }

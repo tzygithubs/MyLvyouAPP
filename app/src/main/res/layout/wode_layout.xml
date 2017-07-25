@@ -5,6 +5,7 @@
     android:orientation="vertical">
     //7.12
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="122dp"
         android:orientation="vertical">
@@ -343,12 +344,10 @@
             android:id="@+id/xinxi"
             android:layout_width="35dp"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView2"
+            android:src="@mipmap/ic_wode_xinxi"
             android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/textView2"
-            android:layout_marginLeft="12dp"
-            android:layout_marginStart="12dp"
-            android:src="@mipmap/ic_wode_xinxi" />
+            android:layout_alignLeft="@+id/textView2"
+            android:layout_alignStart="@+id/textView2" />
 
         <TextView
             android:id="@+id/textView2"
@@ -361,10 +360,11 @@
         <ImageView
             android:id="@+id/shouc"
             android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/xinxi"
             android:layout_alignRight="@+id/textView3"
             android:layout_marginRight="12dp"
+            android:layout_alignParentTop="true"
             android:src="@mipmap/ic_wode_shouc" />
 
         <TextView
@@ -380,12 +380,13 @@
         <ImageView
             android:id="@+id/lishi"
             android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/textView4"
             android:layout_alignRight="@+id/textView4"
             android:layout_alignTop="@+id/shouc"
-            android:layout_marginEnd="11dp"
-            android:layout_marginRight="11dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_alignParentTop="true"
             android:src="@mipmap/ic_wode_lishi" />
 
         <TextView
@@ -402,7 +403,7 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:src="@mipmap/ic_wode_hezuo"
             android:layout_alignTop="@+id/lishi"
             android:layout_alignRight="@+id/textView5"

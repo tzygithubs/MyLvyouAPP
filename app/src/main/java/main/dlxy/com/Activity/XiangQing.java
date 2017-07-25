@@ -1,6 +1,7 @@
 package main.dlxy.com.Activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -27,7 +28,7 @@ import main.dlxy.com.mylvyouapp.R;
  * Created by T on 2017/7/21.
  */
 
-public class XiangQing extends Activity implements AdapterView.OnItemClickListener {
+public class XiangQing extends Activity implements AdapterView.OnItemClickListener, View.OnClickListener {
 
     private ListView lv;
 
@@ -43,11 +44,13 @@ public class XiangQing extends Activity implements AdapterView.OnItemClickListen
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shangping_piaowu_layout);
+
         Bundle b = getIntent().getExtras();
         chushi = b.getString("C");
         zhongdian = b.getString("Z");
         piao = b.getString("P");
         initView();
+
     }
 
     private void initView() {
@@ -55,8 +58,9 @@ public class XiangQing extends Activity implements AdapterView.OnItemClickListen
         SimpleDateFormat sdf = new SimpleDateFormat("MMdd");
         Date curDate  = new Date(System.currentTimeMillis());
         String str = sdf.format(curDate);
-
+        findViewById(R.id.piaowu_fanhui).setOnClickListener(this);
         list = new ArrayList<Map<String , Object>>();
+
         for(int i =0;i<zuowei.length;i++) {
             Map map = new HashMap<String, Object>();
             map.put("zuowei",zuowei[i]);
@@ -84,5 +88,24 @@ public class XiangQing extends Activity implements AdapterView.OnItemClickListen
         String DATABASE_BIAOMING = sp.getString("name","123");
         dbHelper.add(shopCart ,DATABASE_BIAOMING);
         Toast.makeText(XiangQing.this,"添加成功",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.piaowu_fanhui:
+                Intent intent = new Intent(XiangQing.this,PinBing.class);
+                startActivity(intent);
+                break;
+        }
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        try {
+            finalize();
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
     }
 }
