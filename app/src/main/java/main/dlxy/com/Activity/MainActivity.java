@@ -73,9 +73,10 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         rg = findViewById(R.id.radio_main);
        shouye=findViewById(R.id.radiobutton_shouye);
         shouye.setOnClickListener(this);
-        findViewById(R.id.radiobutton_xingcheng).setOnClickListener(this);
-
-        findViewById(R.id.radiobutton_kefu).setOnClickListener(this);
+        xingcheng =findViewById(R.id.radiobutton_xingcheng);
+        xingcheng.setOnClickListener(this);
+        kefu=findViewById(R.id.radiobutton_kefu);
+        kefu.setOnClickListener(this);
         wode= findViewById(R.id.radiobutton_wode);
         wode.setOnClickListener(this);
         fragmentlist = new ArrayList<Fragment>();
@@ -112,7 +113,21 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         }else {
             shouye.setBackgroundResource(R.mipmap.im_rg_shouye_false);
         }
-
+        if (xingcheng.isChecked()){
+            xingcheng.setBackgroundResource(R.mipmap.im_rg_xingcheng_true);
+        }else {
+            xingcheng.setBackgroundResource(R.mipmap.im_gr_xingcheng_false);
+        }
+        if (kefu.isChecked()){
+            kefu.setBackgroundResource(R.mipmap.im_rg_kefu_true);
+        }else {
+            kefu.setBackgroundResource(R.mipmap.im_rg_kefu_false);
+        }
+        if (wode.isChecked()){
+            wode.setBackgroundResource(R.mipmap.im_rg_wode_true);
+        }else {
+            wode.setBackgroundResource(R.mipmap.im_rg_kefu_false);
+        }
     }
 
     public void finish() {
@@ -157,18 +172,21 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         switch (v.getId()){
             case R.id.radiobutton_shouye:
                 vp.setCurrentItem(0,true);
-
+                judge();
                 break;
             case R.id.radiobutton_xingcheng:
                 vp.setCurrentItem(1,true);
-
+                judge();
                 break;
 
             case R.id.radiobutton_kefu:
                 vp.setCurrentItem(2,true);
+                judge();
                 break;
             case R.id.radiobutton_wode:
                 vp.setCurrentItem(3,true);
+                judge();
+                break;
 
         }
     }

@@ -19,35 +19,44 @@
         android:layout_weight="1"
         android:orientation="horizontal"
         android:gravity="center_vertical">
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
         <RadioButton
             android:id="@+id/radiobutton_shouye"
             style="@style/RadioButton"
             android:background="@mipmap/im_rg_shouye_false"
+            android:layout_marginLeft="10dp"
 
             />
 
         <RadioButton
             android:id="@+id/radiobutton_xingcheng"
             style="@style/RadioButton"
-            android:background="@mipmap/xingcheng"
+            android:background="@mipmap/im_rg_xingcheng_true"
+            android:layout_toRightOf="@id/radiobutton_shouye"
+            android:layout_marginLeft="65dp"
 
             />
 
         <RadioButton
             android:id="@+id/radiobutton_kefu"
             style="@style/RadioButton"
-            android:background="@mipmap/kefu"
+            android:background="@mipmap/im_rg_kefu_false"
 
+            android:layout_toRightOf="@id/radiobutton_xingcheng"
+
+            android:layout_marginLeft="65dp"
             />
 
         <RadioButton
             android:id="@+id/radiobutton_wode"
             style="@style/RadioButton"
-            android:background="@mipmap/wode"
-
+            android:background="@mipmap/im_rg_wode_false"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
             />
-
+        </RelativeLayout>
     </RadioGroup>
 
 </LinearLayout>

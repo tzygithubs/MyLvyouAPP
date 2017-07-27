@@ -74,6 +74,14 @@
     <string name="jdian">酒店</string>
     <string name="hw">海外</string>
     <string name="tg">团购</string>
-    <string name="zb">特价酒店</string>
+    <string name="zb">周边</string>
     <string name="gy">民宿·客栈</string>
+    
+    <string name="dongnanya">东南亚</string>
+    <string name="gangaotai">港澳台</string>
+    <string name="guonei">国内</string>
+    <string name="meizhou">美洲</string>
+    <string name="ouzhou">欧洲</string>
+    <string name="rihan">日韩</string>
+
 </resources>

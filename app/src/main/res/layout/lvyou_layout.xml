@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:id="@+id/lvyou_radioGroup"
+        android:layout_width="138dp"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/lvyou_zhoubian"
+            style="@style/lvyou_button"
+            android:text="@string/zb"
+            android:textSize="45sp" />
+
+        <RadioButton
+            android:id="@+id/lvyou_dongnany"
+            style="@style/lvyou_button"
+            android:text="@string/dongnanya" />
+
+        <RadioButton
+
+            android:id="@+id/lvyou_gangaotai"
+            style="@style/lvyou_button"
+            android:text="@string/gangaotai" />
+
+        <RadioButton
+            android:id="@+id/lvyou_guonei"
+            style="@style/lvyou_button"
+            android:text="@string/guonei" />
+
+        <RadioButton
+            android:id="@+id/lvyou_meizhou"
+            style="@style/lvyou_button"
+            android:text="@string/meizhou" />
+
+        <RadioButton
+            android:id="@+id/lvyou_ouzhou"
+            style="@style/lvyou_button"
+            android:text="@string/ouzhou" />
+
+        <RadioButton
+            android:id="@+id/lvyou_rihan"
+            style="@style/lvyou_button"
+            android:text="@string/rihan" />
+    </RadioGroup>
+
+    <GridView
+        android:id="@+id/lvyou_gridView"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:numColumns="2"
+        android:verticalSpacing="9dp"
+        android:horizontalSpacing="9dp"
+        android:layout_weight="2"/>
+</LinearLayout>

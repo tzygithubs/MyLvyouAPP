@@ -32,7 +32,7 @@
         <activity android:name="com.dlxy.RiLi.Rlactivity"/>
         <activity android:name="main.dlxy.com.Activity.XiangQing"/>
         <activity android:name="main.dlxy.com.Activity.JDIAN"></activity>
-
+        <activity android:name="main.dlxy.com.Activity.LvYou"/>
         <activity android:name="main.dlxy.com.Activity.JDIANXQ"></activity>
         <activity android:name="main.dlxy.com.Activity.Hotel"/>
 

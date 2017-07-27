@@ -21,7 +21,8 @@ import main.dlxy.com.mylvyouapp.R;
 public class  JDIANXQ extends Activity {
     private ListView lv;
     private JdxqAdapter adapter;
-    private String names, t ,d;
+    private String names, t ;
+    private int d;
     private TextView textView;
     private int[] img = {R.mipmap.j1, R.mipmap.j2, R.mipmap.j3, R.mipmap.j4, R.mipmap.j5};
     private String[] NAME = {"世佳惠选酒店", "盛大酒店", "小老鼠酒店", "世纪酒店", "青龙山酒店"};
@@ -45,7 +46,7 @@ public class  JDIANXQ extends Activity {
         Bundle b = getIntent().getExtras();
         names = b.getString("n");
         t = b.getString("t");
-        d=b.getString("day");
+        d=b.getInt("day");
         textView.setText(names);
         adapter = new JdxqAdapter(this, list,names);
         lv.setAdapter(adapter);
@@ -56,7 +57,7 @@ public class  JDIANXQ extends Activity {
                 Bundle b = new Bundle();
                 b.putString("biaoti",names+NAME[i]);
                 b.putString("text",t);
-                b.putString("day",d);
+                b.putInt("day",d);
                 intent.putExtras(b);
                 startActivity(intent);
             }

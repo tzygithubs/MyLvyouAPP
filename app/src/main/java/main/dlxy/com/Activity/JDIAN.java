@@ -92,7 +92,7 @@ public class JDIAN extends Activity implements View.OnClickListener {
             rg.check(R.id.id_hw);
         }else if(names.equals("团购")){
             rg.check(R.id.id_tg);
-        }else if(names.equals("特价酒店")){
+        }else if(names.equals("周边")){
             rg.check(R.id.id_tjjd);
         }else if(names.equals("民宿·客栈")){
             rg.check(R.id.id_mskz);
@@ -113,7 +113,7 @@ public class JDIAN extends Activity implements View.OnClickListener {
                 spinn.setAdapter(adapter);
                 break;
             case R.id.id_tjjd:
-                text.setText("特价酒店");
+                text.setText("周边");
                 adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list_all);
                 spinn.setAdapter(adapter);
                 break;
@@ -123,14 +123,14 @@ public class JDIAN extends Activity implements View.OnClickListener {
                 spinn.setAdapter(adapter);
                 break;
             case R.id.id_btn1_layout_item:
-                String k = ed.getText().toString();
+                int k = Integer.parseInt(ed.getText().toString());
                 Intent intent = new Intent(this,JDIANXQ.class);
                 n = spinn.getSelectedItem().toString();
                 t = text.getText().toString();
                 Bundle b = new Bundle();
                 b.putString("n",n);
                 b.putString("t",t);
-                b.putString("day",k);
+                b.putInt("day",k);
                 intent.putExtras(b);
                 startActivity(intent);
                 break;

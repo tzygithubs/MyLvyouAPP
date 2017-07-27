@@ -22,8 +22,9 @@ import main.dlxy.com.mylvyouapp.R;
 public class Hotel extends Activity{
     private TextView text;
     private ListView lv ;
-    private String Text ,jiudian ,day;
-    private List<Map<String,String>> list ;
+    private String Text ,jiudian ;
+    private int day;
+    private List<Map<String,Object>> list ;
     private HotelAdapter hotelAdapter;
     private String[] room = {"总统套房","公寓套房","商务套房","标准房","钟点房"};
     private int[] expense = {20000,10000,6000,3000,1000};
@@ -34,7 +35,7 @@ public class Hotel extends Activity{
         Bundle b = getIntent().getExtras();
         Text = b.getString("text");
         jiudian =b.getString("biaoti");
-        day = b.getString("day");
+        day = b.getInt("day");
         initView();
 
     }
@@ -44,13 +45,16 @@ public class Hotel extends Activity{
         lv = findViewById(R.id.hotel_lvq);
         text.setText(jiudian);
         String k = day+"天";
-        list = new ArrayList<Map<String, String>>();
+        list = new ArrayList<Map<String, Object>>();
 
         for (int i =0;i<room.length;i++){
             Map map = new HashMap();
             map.put("room",room[i]);
-            map.put("expense",expense[i]+"");
+            map.put("expense",expense[i]);
             map.put("day",k);
+            map.put("key",Text);
+            map.put("name",jiudian);
+            map.put("days",day);
             list.add(map);
 
         }

@@ -57,6 +57,13 @@ public class Data {
     public static int[]  shouye_img1= {R.mipmap.im__shouye_ziyouxing, R.mipmap.im__shouye_weilingdui, R.mipmap.im__shouye_yiriyou, R.mipmap.im__shouye_gaoduanyou,R.mipmap.im_shouye_jiudianjingdian, R.mipmap.im_shouye_haiwaiwanle, R.mipmap.im_shouye_xingliguanjia, R.mipmap.im_shouye_jiamenghezuo,};
     public static int[] shouye_img = {R.mipmap.id_shouye_haibao, R.mipmap.id_shouye_haibao2, R.mipmap.id_shouye_haibao3};
 
+    public static int[] lvyou_zhoubian={R.mipmap.ic_lvyou_huangshang,R.mipmap.ic_lvyou_nantong,R.mipmap.ic_lvyou_ningbo,R.mipmap.ic_lvyou_qinxiushan,R.mipmap.ic_lvyou_tianmuhu,R.mipmap.ic_lvyou_yangyou};
+    public static int[] lvyou_dongnanya ={R.mipmap.ic_lvyou_balidao,R.mipmap.ic_lvyou_jianpuzhai,R.mipmap.ic_lvyou_maerdaifu,R.mipmap.ic_lvyou_sililanka,R.mipmap.ic_lvyou_taiguo,R.mipmap.ic_lvyou_xinjiapo};
+    public static int[] lvyou_gangaotai = {R.mipmap.ic_lvyou_aomen,R.mipmap.ic_lvyou_taiwan,R.mipmap.ic_lvyou_xianggangdishini,R.mipmap.ic_lvyou_xianggang1};
+    public static int[] lvyou_guonei = {R.mipmap.ic_lvyou_beijing,R.mipmap.ic_lvyou_sanya,R.mipmap.ic_lvyou_xian,R.mipmap.ic_lvyou_xiamen,R.mipmap.ic_lvyou_zhangjiajie};
+    public static int[] lvyou_meizhou = {R.mipmap.ic_lvyou_guandao,R.mipmap.ic_lvyou_jiujins,R.mipmap.ic_lvyou_meiguo,R.mipmap.ic_lvyou_niuyeu,R.mipmap.ic_lvyou_xiaweiyi};
+    public static int[] lvyou_ouzhou = {R.mipmap.ic_lvyou_deguo,R.mipmap.ic_lvyou_faguo,R.mipmap.ic_lvyou_ruishi,R.mipmap.ic_lvyou_xibanya,R.mipmap.ic_lvyou_yidali,R.mipmap.ic_lvyou_yinguo};
+    public static int[] lvyou_rihan = {R.mipmap.ic_lvyou_beihaidao,R.mipmap.ic_lvyou_daban,R.mipmap.ic_lvyou_dongjing,R.mipmap.ic_lvyou_riben};
 
 
 

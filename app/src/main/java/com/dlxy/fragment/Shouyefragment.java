@@ -12,12 +12,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.dlxy.Dataorigin.Data;
 import com.dlxy.MyAdapter.ShoyeAdapter;
 
 import main.dlxy.com.Activity.JDIAN;
+import main.dlxy.com.Activity.LvYou;
 import main.dlxy.com.Activity.SYXQActivity;
 import main.dlxy.com.mylvyouapp.R;
 
@@ -65,7 +67,7 @@ public class Shouyefragment extends Fragment implements View.OnClickListener {
             }
         });
         view.findViewById(R.id.id_jipiao_button).setOnClickListener(this);
-
+        view.findViewById(R.id.id_lvyou_button).setOnClickListener(this);
         arrayAdapter = new ArrayAdapter<String>(Shouyefragment.this.getActivity(),R.layout.item_textview_layout,R.id.tv_textView_layout,name);
         arrayAdapter1 = new ArrayAdapter<String>(this.getActivity(),R.layout.item_textview_layout1,R.id.tv_textView_layout1,name1);
         arrayAdapter2 = new ArrayAdapter<String>(this.getActivity(),R.layout.item_textview_layout2,R.id.tv_textView_layout2,name2);
@@ -107,16 +109,14 @@ public class Shouyefragment extends Fragment implements View.OnClickListener {
         gridView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(Shouyefragment.this.getActivity(), SYXQActivity.class);
-                startActivity(intent);
+
 
             }
         });
         gridView3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(Shouyefragment.this.getContext(), SYXQActivity.class);
-                startActivity(intent);
+
             }
         });
         //动态导入的方式为ViewFlipper加入View
@@ -153,6 +153,11 @@ public class Shouyefragment extends Fragment implements View.OnClickListener {
                 b.putString("name","飞机票");
                 intent.putExtras(b);
                 startActivity(intent);
+                break;
+            case R.id.id_lvyou_button:
+                Intent intent1 = new Intent(Shouyefragment.this.getActivity(),LvYou.class);
+                Toast.makeText(Shouyefragment.this.getActivity(),"00000000",Toast.LENGTH_SHORT).show();
+                startActivity(intent1);
                 break;
         }
     }
