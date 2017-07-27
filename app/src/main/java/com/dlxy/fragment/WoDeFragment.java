@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,7 +60,8 @@ public class WoDeFragment extends Fragment implements View.OnClickListener {
     public  View view;
     String url = "http://172.16.8.253:8080/file/";
     String url2 ;
-    String url3;
+    private LinearLayout linearLayout,dengrulinarLaout;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -79,12 +81,21 @@ public class WoDeFragment extends Fragment implements View.OnClickListener {
         imgtx.setOnClickListener(this);
         imgsz.setOnClickListener(this);
         tv = view.findViewById(R.id.tv1);
-
+        view.findViewById(R.id.wode_btn_dianjidengru).setOnClickListener(this);
+        linearLayout = view.findViewById(R.id.lv_123);
+        dengrulinarLaout = view.findViewById(R.id.lv_321);
 
         try {
             sp = this.getActivity().getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
             String name =sp.getString("name",null);
-
+            boolean b= sp.getBoolean("boolean",false);
+            if (b==true){
+                linearLayout.setVisibility(linearLayout.VISIBLE);
+                dengrulinarLaout.setVisibility(dengrulinarLaout.GONE);
+            }else if (b==false){
+                linearLayout.setVisibility(linearLayout.GONE);
+                dengrulinarLaout.setVisibility(dengrulinarLaout.VISIBLE);
+            }
             VolleyUtil.getInstance().wode(name, new WodeCallBack() {
                 @Override
                 public void success(String json) {
@@ -119,6 +130,11 @@ public class WoDeFragment extends Fragment implements View.OnClickListener {
 
             case R.id.touxiang:
                 showWindow();
+                break;
+
+            case R.id.wode_btn_dianjidengru:
+                Intent intent1 = new Intent(WoDeFragment.this.getActivity(),DengRu.class);
+                startActivity(intent1);
                 break;
         }
     }
@@ -225,7 +241,7 @@ public class WoDeFragment extends Fragment implements View.OnClickListener {
     catch (Exception e) {
             e.printStackTrace();
         }
-
+        mCurrentPhotoPath = image.getAbsolutePath();
         return  image;
     }
     private String generateFileName() {
@@ -235,6 +251,12 @@ public class WoDeFragment extends Fragment implements View.OnClickListener {
         return imageFileName;
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        ((ViewGroup)view.getParent()).removeView(view);
+    }
 
     //回调方法
     @Override
@@ -266,7 +288,7 @@ public class WoDeFragment extends Fragment implements View.OnClickListener {
                         public void success(String json) {
                             JSONObject jsonObject = JSON.parseObject(json);
 
-                            url3 = jsonObject.getString("avator").toString();
+                           String url3 = jsonObject.getString("avator").toString();
                             Log.i(TAG,"...............json:"+jsonObject+".......333:"+url3);
                             VolleyImageUtils.loadImage(url+url3, imgtx);
                         }

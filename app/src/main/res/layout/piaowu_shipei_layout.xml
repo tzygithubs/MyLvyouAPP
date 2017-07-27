@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_weight="1"
-        android:text="阿斯顿"
+        android:text="@string/yuding"
         android:textSize="30dp"
         android:layout_margin="10dp"
         android:background="@color/orange"

@@ -73,7 +73,7 @@ public class PinBing extends FragmentActivity implements View.OnClickListener, A
         findViewById(R.id.home_rb_cart).setOnClickListener(this);
         findViewById(R.id.home_rb_mine).setOnClickListener(this);
         radioGroup.check(R.id.home_rb_index);
-        adapter = new HCAdapter(this,shuju,shuju1,shuju2,shuju3);
+        adapter = new HCAdapter(this,shuju,shuju1,shuju2,shuju3,chushi,zhongdian);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
         if(piao.equals("火车票")){
@@ -91,25 +91,25 @@ public class PinBing extends FragmentActivity implements View.OnClickListener, A
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.home_rb_index:
-                adapter = new HCAdapter(this,shuju,shuju1,shuju2,shuju3);
+                adapter = new HCAdapter(this,shuju,shuju1,shuju2,shuju3,chushi,zhongdian);
                 listView.setAdapter(adapter);
                 piao = "火车票";
                 return;
 
              case R.id.home_rb_category:
-                adapter = new HCAdapter(this,shuju1,shuju1,shuju2,shuju3);
+                adapter = new HCAdapter(this,shuju,shuju1,shuju2,shuju3,chushi,zhongdian);
                 listView.setAdapter(adapter);
                  piao = "飞机票";
                 return;
 
              case R.id.home_rb_cart:
-                adapter = new HCAdapter(this,shuju2,shuju1,shuju2,shuju3);
+                adapter = new HCAdapter(this,shuju,shuju1,shuju2,shuju3,chushi,zhongdian);
                 listView.setAdapter(adapter);
                  piao = "汽车票";
                 return;
 
              case R.id.home_rb_mine:
-                adapter = new HCAdapter(this,shuju3,shuju1,shuju2,shuju3);
+                adapter = new HCAdapter(this,shuju,shuju1,shuju2,shuju3,chushi,zhongdian);
                 listView.setAdapter(adapter);
                  piao = "特价机票";
                 return;

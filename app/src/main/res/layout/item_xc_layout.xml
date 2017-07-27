@@ -13,32 +13,36 @@
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="410dp"
             android:orientation="vertical"
-            android:layout_weight="1"
             >
-            <ListView
-                android:id="@+id/item_xc_listView"
+            <com.dlxy.Utils.QQListView
+                android:id="@+id/id_listview"
                 android:layout_width="match_parent"
-                android:layout_height="436dp"
-                />
-        <Button
-            android:id="@+id/item_btn_shanchu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="删除"/>
+                android:layout_height="wrap_content" >
+            </com.dlxy.Utils.QQListView>
+
+                <ListView
+                    android:id="@+id/item_xc_listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="160dp"
+                    />
+
+
+
         </LinearLayout>
-        <!--<View-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="1dp"-->
-            <!--android:background="@color/colorGray"-->
-            <!--android:layout_marginTop="5dp"/>-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray"
+            android:layout_marginTop="5dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:orientation="horizontal"
-            android:layout_weight="10"
+
             android:gravity="center">
 
             <TextView

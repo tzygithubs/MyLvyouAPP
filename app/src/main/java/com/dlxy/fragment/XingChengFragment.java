@@ -6,19 +6,21 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.dlxy.MyAdapter.SQLiteXingCheng;
 import com.dlxy.MyAdapter.XingChengAdapter;
 import com.dlxy.Sqlite.DBHelper;
 import com.dlxy.Sqlite.DBManager;
+import com.dlxy.Utils.QQListView;
 import com.dlxy.domain.ShopCart;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import main.dlxy.com.Activity.DengRu;
@@ -35,13 +37,13 @@ public class XingChengFragment extends Fragment {
     private DBManager dbManager;
     private View view;
     private int[] img ={R.mipmap.ic_launcher};
-    private List<ShopCart> list,listid ;
-    private ListView listView1,listView2;
+    private List<ShopCart> list ;
+    private ListView listView1;
     private XingChengAdapter adapter ;
-    private SQLiteXingCheng dbadapter;
+    private SQLiteXingCheng dbadapter,sqLiteXingCheng;
     DBHelper dbHelper ;
     private int x ;
-
+    private QQListView qqListView;
     public XingChengFragment (Context context){
         dbManager = new DBManager(context);
         db = dbManager.getWritableDatabase();
@@ -65,45 +67,40 @@ public class XingChengFragment extends Fragment {
         final String DATABASE_BIAOMING = sp.getString("name","123");
         //Toast.makeText(XingChengFragment.this.getActivity(),"..."+b,Toast.LENGTH_SHORT).show();
         listView1 = v.findViewById(R.id.item_xc_listView);
-        v.findViewById(R.id.item_btn_shanchu).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                String n = x+"";
-//                String n = "汽车";
-//                dbHelper.delete(n,DATABASE_BIAOMING);
-//                listid = dbHelper.query(DATABASE_BIAOMING);
-//                int[] gg ;
-//                String sqls = "select * from "+DATABASE_BIAOMING+"";
-//                Cursor c = db.rawQuery(sqls, null);
-//                while (c.moveToNext()){
-//                    int id = c.getInt(c.getColumnIndex("_id"));
-//                    Log.i(TAG,"........._id:"+id);
-//
-//                }
-
-            }
-        });
+        Log.i(TAG,"..........00000on  onCreateview");
 
         adapter = new XingChengAdapter(v.getContext(),img);
 
         if(b==true){
-            sp = this.getActivity().getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
-            dbHelper = new DBHelper(this.getActivity());
+            qqListView = view.findViewById(R.id.id_listview);
 
-           // String DATABASE_BIAOMING = sp.getString("name","123");
-            list =  dbHelper.query( DATABASE_BIAOMING);
+            Log.i(TAG,"........00list"+DATABASE_BIAOMING);
+            dbHelper = new DBHelper(XingChengFragment.this.getActivity());
+            List<ShopCart> list = dbHelper.query(DATABASE_BIAOMING);
+            Log.i(TAG,"........00list"+list);
+            sqLiteXingCheng = new SQLiteXingCheng(XingChengFragment.this.getActivity(),list);
 
-//            Toast.makeText(XingChengFragment.this.getActivity(),o,Toast.LENGTH_SHORT).show();
+            qqListView.setAdapter(sqLiteXingCheng);
 
-            dbadapter = new SQLiteXingCheng(this.getActivity(),list);
-            listView1.setAdapter(dbadapter);
-            listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            qqListView.setDelButtonClickListener(new QQListView.DelButtonClickListener() {
                 @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    x=i;
-                    Toast.makeText(XingChengFragment.this.getActivity(),"....选择了："+x+"项",Toast.LENGTH_SHORT).show();
+                public void clickHappend(int position) {
+                    String i = position+1+"";
+                    dbHelper.delete(i,DATABASE_BIAOMING);
+                    List<ShopCart> lists = new ArrayList<ShopCart>();
+                    lists=dbHelper.query(DATABASE_BIAOMING);
+                    SQLiteXingCheng xincheng = new SQLiteXingCheng(XingChengFragment.this.getActivity(),lists);
+                    qqListView.setAdapter(xincheng);
+//
                 }
             });
+            qqListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                }
+            });
+
         }if(b==false){
             listView1.setAdapter(adapter);
         }
@@ -113,15 +110,10 @@ public class XingChengFragment extends Fragment {
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-        try {
-            finalize();
-//            Toast.makeText(XingChengFragment.this.getActivity(),"000000",Toast.LENGTH_SHORT).show();
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-
+    public void onResume() {
+        super.onResume();
+        Log.i(TAG,"..........00000on  onResume");
+        initView(view);
     }
 
     @Override

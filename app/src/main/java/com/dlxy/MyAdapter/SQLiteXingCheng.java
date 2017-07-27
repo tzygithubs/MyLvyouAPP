@@ -28,6 +28,8 @@ public class SQLiteXingCheng extends BaseAdapter {
         this.inflater =LayoutInflater.from(context);
     }
 
+
+
     @Override
     public int getCount() {
         return list.size();

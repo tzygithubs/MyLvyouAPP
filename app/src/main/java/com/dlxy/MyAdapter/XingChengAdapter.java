@@ -1,6 +1,7 @@
 package com.dlxy.MyAdapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import main.dlxy.com.Activity.DengRu;
 import main.dlxy.com.mylvyouapp.R;
 
 /**
@@ -15,6 +17,7 @@ import main.dlxy.com.mylvyouapp.R;
  */
 
 public class XingChengAdapter extends BaseAdapter {
+    private static final String TAG = "XingChengAdapter";
     private Context context;
     private int[] img ;
     private LayoutInflater layoutInflater;
@@ -53,7 +56,13 @@ public class XingChengAdapter extends BaseAdapter {
         }
         holdeView.imageView.setImageResource(img[position]);
         holdeView.button.setTag(position);
-
+        holdeView.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(XingChengAdapter.this.context, DengRu.class);
+                context.startActivity(intent);
+            }
+        });
         return view;
     }
 

@@ -9,13 +9,13 @@
         android:id="@+id/item_img_adapter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@mipmap/ic_launcher" />
 
     <Button
         android:id="@+id/item_btn_adapter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dp"
-        android:text="大理石"/>
+        android:text="@string/denglu"/>
 
 </LinearLayout>

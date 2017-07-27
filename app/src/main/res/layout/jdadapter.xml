@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:id="@+id/img_asdasd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            android:layout_weight="2"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/text1_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="曼谷12"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="上海世界经济"
+                android:id="@+id/shjd"
+                android:layout_toRightOf="@+id/text1_id"
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/sjys"
+                android:layout_below="@+id/shjd"
+                android:text="【暑期预售】 标准间"
+                android:textSize="15sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorGray"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sjys"
+                android:text="【含早】阳光房"
+                android:textSize="15sp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/ygf"
+                android:textColor="@color/colorGray"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/yjj"
+                android:layout_below="@+id/ygf"
+                android:text="￥328"
+                android:textSize="20sp"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已售444"
+                android:textSize="15sp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/ygf"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="5dp"
+                android:id="@+id/xsaa"
+                android:textColor="@color/colorGray"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

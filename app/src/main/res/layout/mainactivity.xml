@@ -3,19 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-<android.support.v4.view.ViewPager
+<com.dlxy.Utils.CustomViewPager
     android:id="@+id/viewpager_main"
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="7">
 
-</android.support.v4.view.ViewPager>
+</com.dlxy.Utils.CustomViewPager>
 
 
     <RadioGroup
         android:id="@+id/radio_main"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="19dp"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:gravity="center_vertical">
@@ -23,7 +23,7 @@
         <RadioButton
             android:id="@+id/radiobutton_shouye"
             style="@style/RadioButton"
-            android:background="@mipmap/shouye"
+            android:background="@mipmap/im_rg_shouye_false"
 
             />
 
@@ -40,6 +40,7 @@
             android:background="@mipmap/kefu"
 
             />
+
         <RadioButton
             android:id="@+id/radiobutton_wode"
             style="@style/RadioButton"

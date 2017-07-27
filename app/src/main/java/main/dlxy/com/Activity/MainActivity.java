@@ -14,6 +14,7 @@ import android.widget.RadioGroup;
 
 import com.dlxy.Sqlite.DBHelper;
 import com.dlxy.Sqlite.DBManager;
+import com.dlxy.Utils.CustomViewPager;
 import com.dlxy.fragment.KeFuFragment;
 import com.dlxy.fragment.Shouyefragment;
 import com.dlxy.fragment.WoDeFragment;
@@ -25,9 +26,10 @@ import main.dlxy.com.mylvyouapp.R;
 
 
 public class MainActivity extends FragmentActivity implements ViewPager.OnPageChangeListener, View.OnClickListener {
-    private ViewPager vp;
+    private static final String TAG ="MainActivity";
+    private CustomViewPager vp;
     private RadioGroup rg;
-    private RadioButton wode;
+    private RadioButton shouye,xingcheng,kefu, wode;
     private  int n;
     SharedPreferences sp = null;
     private ArrayList<Fragment> fragmentlist;
@@ -56,10 +58,8 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 
         try {
             sp = getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
-            String DATABASE_BIAOMING = sp.getString("name","123");
-
-
-            String sul = "create table if not exists "+DATABASE_BIAOMING+"(_id  integer primary key autoincrement,name varchar, jieshao varchar,jiner integer,kaishi varchar , zhongdian varchar )";
+            String DATABASE_BIAOMING = sp.getString("name",null);
+            String sul = "create table if not exists "+DATABASE_BIAOMING+""+"(_id  integer primary key autoincrement,name varchar, jieshao varchar,jiner integer,kaishi varchar , zhongdian varchar )";
             db = dbManager.getWritableDatabase();
             db.execSQL(sul);
         } catch (Exception e) {
@@ -69,8 +69,10 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 
 
         vp = findViewById(R.id.viewpager_main);
+        vp.setScanScroll(false);
         rg = findViewById(R.id.radio_main);
-        findViewById(R.id.radiobutton_shouye).setOnClickListener(this);
+       shouye=findViewById(R.id.radiobutton_shouye);
+        shouye.setOnClickListener(this);
         findViewById(R.id.radiobutton_xingcheng).setOnClickListener(this);
 
         findViewById(R.id.radiobutton_kefu).setOnClickListener(this);
@@ -94,10 +96,22 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
             }
         };
         vp.setAdapter(fragmentPagerAdapter);
-        vp.addOnPageChangeListener(this);
+        vp.setOnPageChangeListener(this);
         rg.check(R.id.radiobutton_shouye);
 
+        judge();
+
         intent();
+
+    }
+
+    private void judge() {
+
+        if (shouye.isChecked()){
+            shouye.setBackgroundResource(R.mipmap.im_rg_shouye_true);
+        }else {
+            shouye.setBackgroundResource(R.mipmap.im_rg_shouye_false);
+        }
 
     }
 
@@ -126,6 +140,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
             break;
         case 1:
             rg.check(R.id.radiobutton_xingcheng);
+
             break;
 
         case 2:
@@ -142,6 +157,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         switch (v.getId()){
             case R.id.radiobutton_shouye:
                 vp.setCurrentItem(0,true);
+
                 break;
             case R.id.radiobutton_xingcheng:
                 vp.setCurrentItem(1,true);
@@ -153,6 +169,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
                 break;
             case R.id.radiobutton_wode:
                 vp.setCurrentItem(3,true);
+
         }
     }
     private void intent() {
@@ -166,7 +183,12 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
                 rg.check(R.id.radiobutton_wode);
                 vp.setCurrentItem(4,true);
 
-            }else {
+            }else if (n.equals("wode_dengru")){
+                rg.check(R.id.radiobutton_wode);
+                vp.setCurrentItem(4,true);
+            }
+
+            else {
                 rg.check(R.id.radiobutton_shouye);
                 vp.setCurrentItem(0,true);
             }
@@ -178,9 +200,5 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
 
-    }
 }

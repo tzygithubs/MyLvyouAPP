@@ -96,16 +96,12 @@ public class XiangQing extends Activity implements AdapterView.OnItemClickListen
             case R.id.piaowu_fanhui:
                 Intent intent = new Intent(XiangQing.this,PinBing.class);
                 startActivity(intent);
+
+                XiangQing.this.finish();
+
+
                 break;
         }
     }
-    @Override
-    protected void onStop() {
-        super.onStop();
-        try {
-            finalize();
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-    }
+
 }

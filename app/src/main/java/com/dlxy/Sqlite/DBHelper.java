@@ -9,7 +9,9 @@ import android.util.Log;
 import com.dlxy.domain.ShopCart;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by T on 2017/7/14.
@@ -30,17 +32,17 @@ public class DBHelper {
         String sql = "insert into "+DATABASE_BIAOMING+" values (null,?,?,?,?,?)";
 
         db.execSQL(sql,new Object[] { shopcarts.getName(),shopcarts.getJieshao(),shopcarts.getSum(),shopcarts.getKaishi(),shopcarts.getZhongdian()});
-
+        kaySort(DATABASE_BIAOMING);
     }
 
-    public void delete(String name ,String DATABASE_BIAOMING ) {
+    public void delete(String _id ,String DATABASE_BIAOMING ) {
 
-        db.delete(""+DATABASE_BIAOMING+"", "name=?", new String[] { name} );
-
+        db.delete(""+DATABASE_BIAOMING+"", "_id=?", new String[] { _id} );
+        kaySort(DATABASE_BIAOMING);
     }
 
-    public void update(String name, ContentValues values) {
-        db.update(""+DBcl.DATABASE_BIAOMING+"", values, "name=?", new String[] { name });
+    public void update(String _id, ContentValues values,String DATABASE_BIAOMING) {
+        db.update(""+DATABASE_BIAOMING+"", values, "_id=?", new String[] { _id });
     }
 
 
@@ -65,6 +67,27 @@ public class DBHelper {
         }
         return list;
     }
+    public void kaySort (String DATABASE_BIAOMING){
+        String sqls = "select * from "+DATABASE_BIAOMING+"";
+        Cursor c = db.rawQuery(sqls, null);
+        List<Map<Integer,Integer>> listid  = new ArrayList<Map<Integer, Integer>>();
 
+        for (int i =0; c.moveToNext();i++){
+            int id = c.getInt(c.getColumnIndex("_id"));
+            Map<Integer, Integer> map = new HashMap<>();
+            map.put(i,id);
+            listid.add(map);
+        }
+
+
+        for (int j =1; j<listid.size()+1;j++){
+            int i = listid.get(j-1).get(j-1);
+            Log.i(TAG,"........._id:"+i);
+            ContentValues values = new ContentValues();
+            values.put("_id",j);
+            update(i+"",values,DATABASE_BIAOMING);
+        }
+
+    }
 
 }

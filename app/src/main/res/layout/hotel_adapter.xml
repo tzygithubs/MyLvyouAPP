@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/hotel_shipei_room"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:text="四个字字"
+            android:textSize="20sp"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/hotel_shipei_jiege"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="1000000"
+            android:textSize="20sp"
+            android:gravity="center_vertical"
+            android:layout_toRightOf="@id/hotel_shipei_room"
+            android:textColor="@color/orange"/>
+
+        <TextView
+            android:id="@+id/hotel_shipei_day"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="四个字字"
+            android:textSize="20sp"
+            android:gravity="center_vertical"
+            android:layout_toRightOf="@id/hotel_shipei_jiege"
+            />
+
+        <Button
+            android:id="@+id/hotel_shipei_button"
+            android:layout_width="75dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:text="@string/yuding"
+            android:textSize="20sp"
+            android:background="@color/orange"/>
+    </RelativeLayout>
+</LinearLayout>

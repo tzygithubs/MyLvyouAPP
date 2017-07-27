@@ -43,7 +43,7 @@
     <string name="zhuce">注册</string>
     <string name="wangjimima">忘记密码</string>
     <string name="dingdan">订单服务</string>
-    <string name="zixun">售前咨询</string>
+    <string name="zixun">出行帮助</string>
     <string name="err">账号密码错误</string>
     <string name="xingbie">性别</string>
     <string name="age">年龄</string>
@@ -54,8 +54,6 @@
     <string name="checi">车次详情</string>
     <string name="youpiao">有票</string>
     <string name="yuding">预订</string>
-    <string name="shanghai">上海虹桥站</string>
-    <string name="beijing">北京南站</string>
     <string name="window_paizhao">拍照</string>
     <string name="window_xiangce">从相册选择</string>
     <string name="window_quxiao">取消</string>
@@ -72,4 +70,10 @@
     <string name="fenj">飞机</string>
     <string name="qic">汽车</string>
     <string name="tj">特价票</string>
+
+    <string name="jdian">酒店</string>
+    <string name="hw">海外</string>
+    <string name="tg">团购</string>
+    <string name="zb">特价酒店</string>
+    <string name="gy">民宿·客栈</string>
 </resources>

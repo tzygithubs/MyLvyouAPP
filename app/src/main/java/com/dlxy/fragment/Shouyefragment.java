@@ -14,8 +14,10 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
+import com.dlxy.Dataorigin.Data;
 import com.dlxy.MyAdapter.ShoyeAdapter;
 
+import main.dlxy.com.Activity.JDIAN;
 import main.dlxy.com.Activity.SYXQActivity;
 import main.dlxy.com.mylvyouapp.R;
 
@@ -30,13 +32,13 @@ public class Shouyefragment extends Fragment implements View.OnClickListener {
     private ArrayAdapter<String> arrayAdapter,arrayAdapter1,arrayAdapter2,arrayAdapter3;
     private ShoyeAdapter shoteAdapter;
     private GridView gridView,gridView1,gridView2,gridView3,gridView4;
-    private String name[] = {"海外","团购","周边","公寓"};
-    private String name1[] = {"火车票","汽车票","特价机票","专车.租车"};
-    private String name2[] = {"门票","邮轮","出境","签证"};
-    private String name3[] = {"周末游","美食购物","礼品卡","更多"};
-    private String name4[] = {"自由行","微领队","一日游","高端游","酒店+景点","海外玩乐","行李管家","合作加盟",};
-    private int[] img1 = {R.mipmap.ic_shouye_saoyisao, R.mipmap.ic_wode_saoma, R.mipmap.ic_wode_fanyi, R.mipmap.ic_wode_xiaoxi,R.mipmap.ic_shouye_saoyisao, R.mipmap.ic_wode_saoma, R.mipmap.ic_wode_fanyi, R.mipmap.ic_wode_xiaoxi,};
-    private int[] img = {R.mipmap.id_shouye_haibao, R.mipmap.id_shouye_haibao2, R.mipmap.id_shouye_haibao3};
+    private String name[] = Data.shouye_name;
+    private String name1[] = Data.shouye_name1;
+    private String name2[] = Data.shouye_name2;
+    private String name3[] = Data.shouye_name3;
+    private String name4[] = Data.shouye_name4;
+    private int[] img1 = Data.shouye_img1;
+    private int[] img = Data.shouye_img;
     private Button jiudian;
 
     @Nullable
@@ -56,7 +58,12 @@ public class Shouyefragment extends Fragment implements View.OnClickListener {
         gridView2 =view.findViewById(R.id.item_gridView_layout2);
         gridView3 =view.findViewById(R.id.item_gridView_layout3);
         gridView4 =view.findViewById(R.id.item_gridView_layout4);
-        jiudian = view.findViewById(R.id.id_jiudian_button);
+        view.findViewById(R.id.id_jiudian_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         view.findViewById(R.id.id_jipiao_button).setOnClickListener(this);
 
         arrayAdapter = new ArrayAdapter<String>(Shouyefragment.this.getActivity(),R.layout.item_textview_layout,R.id.tv_textView_layout,name);
@@ -73,17 +80,20 @@ public class Shouyefragment extends Fragment implements View.OnClickListener {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Intent intent = new Intent(Shouyefragment.this.getContext(), SYXQActivity.class);
+                Intent intent = new Intent(Shouyefragment.this.getContext(), JDIAN.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("name",name[position]);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
-        jiudian.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Shouyefragment.this.getContext(), SYXQActivity.class);
-                startActivity(intent);
-            }
-        });
+//        jiudian.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Shouyefragment.this.getContext(), SYXQActivity.class);
+//                startActivity(intent);
+//            }
+//        });
         gridView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -140,7 +150,7 @@ public class Shouyefragment extends Fragment implements View.OnClickListener {
             case R.id.id_jipiao_button:
                 Intent intent = new Intent(Shouyefragment.this.getActivity(),SYXQActivity.class);
                 Bundle b = new Bundle();
-                b.putString("name","机票");
+                b.putString("name","飞机票");
                 intent.putExtras(b);
                 startActivity(intent);
                 break;

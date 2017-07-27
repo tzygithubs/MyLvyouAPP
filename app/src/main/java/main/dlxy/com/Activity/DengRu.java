@@ -79,7 +79,7 @@ public class DengRu extends Activity implements View.OnClickListener {
 //                            }
                             Intent intent = new Intent(DengRu.this, MainActivity.class);
 //                            Bundle b = new Bundle();
-//                            b.putString("name","123");
+//                            b.putString("name","wode_dengru");
 //                            intent.putExtras(b);
                             startActivity(intent);
                         }else {
