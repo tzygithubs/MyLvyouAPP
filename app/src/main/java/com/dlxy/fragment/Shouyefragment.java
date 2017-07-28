@@ -12,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.dlxy.Dataorigin.Data;
@@ -156,7 +155,7 @@ public class Shouyefragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.id_lvyou_button:
                 Intent intent1 = new Intent(Shouyefragment.this.getActivity(),LvYou.class);
-                Toast.makeText(Shouyefragment.this.getActivity(),"00000000",Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(Shouyefragment.this.getActivity(),"00000000",Toast.LENGTH_SHORT).show();
                 startActivity(intent1);
                 break;
         }

@@ -126,7 +126,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         if (wode.isChecked()){
             wode.setBackgroundResource(R.mipmap.im_rg_wode_true);
         }else {
-            wode.setBackgroundResource(R.mipmap.im_rg_kefu_false);
+            wode.setBackgroundResource(R.mipmap.im_rg_wode_false);
         }
     }
 

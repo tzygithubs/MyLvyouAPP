@@ -5,14 +5,14 @@
 
     <RadioGroup
         android:id="@+id/lvyou_radioGroup"
-        android:layout_width="138dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <RadioButton
             android:id="@+id/lvyou_zhoubian"
             style="@style/lvyou_button"
             android:text="@string/zb"
-            android:textSize="45sp" />
+             />
 
         <RadioButton
             android:id="@+id/lvyou_dongnany"
@@ -23,7 +23,8 @@
 
             android:id="@+id/lvyou_gangaotai"
             style="@style/lvyou_button"
-            android:text="@string/gangaotai" />
+            android:text="@string/gangaotai"
+            android:layout_width="match_parent" />
 
         <RadioButton
             android:id="@+id/lvyou_guonei"
