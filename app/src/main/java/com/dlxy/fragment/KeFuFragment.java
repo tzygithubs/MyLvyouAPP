@@ -19,6 +19,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.dlxy.Dataorigin.Data;
+import com.dlxy.Utils.VolleyImageUtils;
 
 import main.dlxy.com.mylvyouapp.R;
 
@@ -27,7 +28,7 @@ import main.dlxy.com.mylvyouapp.R;
  */
 
 public class KeFuFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemClickListener {
-
+    private ImageView imgtx;
     private View view;
     private ListView lv ;
     private RadioGroup radioGroup;
@@ -47,6 +48,8 @@ public class KeFuFragment extends Fragment implements View.OnClickListener, Adap
         if(view==null){
             view=inflater.inflate(R.layout.kefu_layout_fragment,container,false);
         }
+        imgtx= view.findViewById(R.id.dh);
+//        VolleyImageUtils.loadImage("http://q.qlogo.cn/qqapp/100424468/DCCC78DD980CF083525BBF8373BAF538/100",imgtx);
         initView(view);
         return view;
     }

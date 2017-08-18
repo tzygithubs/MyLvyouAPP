@@ -36,8 +36,7 @@ public class LvYou extends Activity implements View.OnClickListener {
     private int[] rihan =Data.lvyou_rihan;
     private List<Map<String,Integer>> zhoubian_list,dongnaya_list,gangaotai_list,guonei_list,meizhou_lisy,ouzhou_list,rihan_list;
 
-    public LvYou() {
-    }
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,89 +62,57 @@ public class LvYou extends Activity implements View.OnClickListener {
         ouzhou1.setOnClickListener(this);
         rihan1=findViewById(R.id.lvyou_rihan);
         rihan1.setOnClickListener(this);
+        zhoubian_list = panduan(zhoubian_list,zhoubian);
+        dongnaya_list = panduan(dongnaya_list,dongnaya);
+        gangaotai_list =panduan(gangaotai_list,gangaotai);
+        guonei_list = panduan(guonei_list,guonei);
+        meizhou_lisy = panduan(meizhou_lisy,meizhou);
+        ouzhou_list = panduan(ouzhou_list,ouzhou);
+        rihan_list = panduan(rihan_list,rihan);
 
-        zhoubian_list = new ArrayList<>();
-        for (int i =0 ;i<zhoubian.length;i++){
-            Map map= new HashMap();
-            map.put("imag",zhoubian[i]);
-            zhoubian_list.add(map);
-        }
-        dongnaya_list = new ArrayList<>();
-        for (int i =0 ;i<dongnaya.length;i++){
-            Map map= new HashMap();
-            map.put("imag",dongnaya[i]);
-            dongnaya_list.add(map);
-        }
-        gangaotai_list = new ArrayList<>();
-        for (int i =0 ;i<gangaotai.length;i++){
-            Map map= new HashMap();
-            map.put("imag",gangaotai[i]);
-            gangaotai_list.add(map);
-        }
-        guonei_list = new ArrayList<>();
-        for (int i =0 ;i<guonei.length;i++){
-            Map map= new HashMap();
-            map.put("imag",guonei[i]);
-            guonei_list.add(map);
-        }
-        meizhou_lisy = new ArrayList<>();
-        for (int i =0 ;i<meizhou.length;i++){
-            Map map= new HashMap();
-            map.put("imag",meizhou[i]);
-            meizhou_lisy.add(map);
-        }
-        ouzhou_list = new ArrayList<>();
-        for (int i =0 ;i<ouzhou.length;i++){
-            Map map= new HashMap();
-            map.put("imag",ouzhou[i]);
-            ouzhou_list.add(map);
-        }
-        rihan_list = new ArrayList<>();
-        for (int i =0 ;i<rihan.length;i++){
-            Map map= new HashMap();
-            map.put("imag",rihan[i]);
-            rihan_list.add(map);
-        }
         radioGroup.check(R.id.lvyou_zhoubian);
-        simpleAdapter = new SimpleAdapter(this,zhoubian_list,R.layout.lvyou_adapter,new String[]{"imag"},new int[]{R.id.lvyou_adapter});
-        gridView.setAdapter(simpleAdapter);
+        shipei(zhoubian_list);
 
     }
+    public List<Map<String,Integer>> panduan(List<Map<String,Integer>> lists,int[] img){
+        lists = new ArrayList<>();
+        for (int i=0;i<img.length;i++) {
+            Map map = new HashMap();
+            map.put("imag",img[i]);
+            lists.add(map);
+        }
+        return lists;
+    }
 
+    public void shipei(List<Map<String,Integer>> lists){
+        simpleAdapter = new SimpleAdapter(this,lists,R.layout.lvyou_adapter,new String[]{"imag"},new int[]{R.id.lvyou_adapter});
+        gridView.setAdapter(simpleAdapter);
 
-
+}
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.lvyou_zhoubian:
-                simpleAdapter = new SimpleAdapter(this,zhoubian_list,R.layout.lvyou_adapter,new String[]{"imag"},new int[]{R.id.lvyou_adapter});
-                gridView.setAdapter(simpleAdapter);
-                
+                shipei(zhoubian_list);
                 break;
             case R.id.lvyou_dongnany:
-                simpleAdapter = new SimpleAdapter(this,dongnaya_list,R.layout.lvyou_adapter,new String[]{"imag"},new int[]{R.id.lvyou_adapter});
-                gridView.setAdapter(simpleAdapter);
+                shipei(dongnaya_list);
                 break;
             case R.id.lvyou_gangaotai:
-                simpleAdapter = new SimpleAdapter(this,gangaotai_list,R.layout.lvyou_adapter,new String[]{"imag"},new int[]{R.id.lvyou_adapter});
-                gridView.setAdapter(simpleAdapter);
+                shipei(gangaotai_list);
                 break;
             case R.id.lvyou_guonei:
-                simpleAdapter = new SimpleAdapter(this,guonei_list,R.layout.lvyou_adapter,new String[]{"imag"},new int[]{R.id.lvyou_adapter});
-                gridView.setAdapter(simpleAdapter);
+                shipei(guonei_list);
                 break;
             case R.id.lvyou_meizhou:
-                simpleAdapter = new SimpleAdapter(this,meizhou_lisy,R.layout.lvyou_adapter,new String[]{"imag"},new int[]{R.id.lvyou_adapter});
-                gridView.setAdapter(simpleAdapter);
+                shipei(meizhou_lisy);
                 break;
             case R.id.lvyou_ouzhou:
-                simpleAdapter = new SimpleAdapter(this,ouzhou_list,R.layout.lvyou_adapter,new String[]{"imag"},new int[]{R.id.lvyou_adapter});
-                gridView.setAdapter(simpleAdapter);
+                shipei(ouzhou_list);
                 break;
             case R.id.lvyou_rihan:
-                simpleAdapter = new SimpleAdapter(this,rihan_list,R.layout.lvyou_adapter,new String[]{"imag"},new int[]{R.id.lvyou_adapter});
-                gridView.setAdapter(simpleAdapter);
+                shipei(rihan_list);
                 break;
         }
         

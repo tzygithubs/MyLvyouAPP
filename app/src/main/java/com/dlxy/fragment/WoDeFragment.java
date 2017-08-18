@@ -54,7 +54,7 @@ public class WoDeFragment extends Fragment implements View.OnClickListener {
     private static final int RESULT_CAMERA_IMAGE = 1;
     private  static final String TAG="WoDeFragment";
     private String mCurrentPhotoPath;
-    private ImageView imgsz ,imgtx;
+    private ImageView imgsz ,imgtx , saomas;
     private TextView tv;
     SharedPreferences sp = null;
     public  View view;
@@ -77,14 +77,15 @@ public class WoDeFragment extends Fragment implements View.OnClickListener {
         //
         imgsz  =view.findViewById(R.id.shezhi);
         imgtx = view.findViewById(R.id.touxiang);
-        VolleyImageUtils.loadImage(UserContents.imageUrl, imgtx);
+//        VolleyImageUtils.loadImage(UserContents.imageUrl, imgtx);
         imgtx.setOnClickListener(this);
         imgsz.setOnClickListener(this);
         tv = view.findViewById(R.id.tv1);
         view.findViewById(R.id.wode_btn_dianjidengru).setOnClickListener(this);
         linearLayout = view.findViewById(R.id.lv_123);
         dengrulinarLaout = view.findViewById(R.id.lv_321);
-
+        saomas = view.findViewById(R.id.saoma);
+        VolleyImageUtils.loadImage("http://q.qlogo.cn/qqapp/100424468/DCCC78DD980CF083525BBF8373BAF538/100",imgtx);
         try {
             sp = this.getActivity().getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
             String name =sp.getString("name",null);
@@ -96,23 +97,24 @@ public class WoDeFragment extends Fragment implements View.OnClickListener {
                 linearLayout.setVisibility(linearLayout.GONE);
                 dengrulinarLaout.setVisibility(dengrulinarLaout.VISIBLE);
             }
-            VolleyUtil.getInstance().wode(name, new WodeCallBack() {
-                @Override
-                public void success(String json) {
-                    JSONObject jsonObject = JSON.parseObject(json);
-
-                    String name=  jsonObject.get("name").toString();
-                    tv.setText(name);
-                    url2 = jsonObject.getString("avator").toString();
-                    VolleyImageUtils.loadImage(url+url2, imgtx);
-                    Log.i(TAG,"...............json:"+jsonObject+"..........22:"+url2);
-                }
-
-                @Override
-                public void errr(String error) {
-                    Toast.makeText(WoDeFragment.this.getActivity(),"..."+error,Toast.LENGTH_SHORT).show();
-                }
-            });
+//            VolleyUtil.getInstance().wode(name, new WodeCallBack() {
+//                @Override
+//                public void success(String json) {
+//                    JSONObject jsonObject = JSON.parseObject(json);
+//
+//                    String name=  jsonObject.get("name").toString();
+//                    tv.setText(name);
+//                    url2 = jsonObject.getString("avator").toString();
+////                    VolleyImageUtils.loadImage(url+url2, imgtx);
+//                    VolleyImageUtils.loadImage("http://q.qlogo.cn/qqapp/100424468/DCCC78DD980CF083525BBF8373BAF538/100",imgtx);
+//                    Log.i(TAG,"...............json:"+jsonObject+"..........22:"+url2);
+//                }
+//
+//                @Override
+//                public void errr(String error) {
+//                    Toast.makeText(WoDeFragment.this.getActivity(),"..."+error,Toast.LENGTH_SHORT).show();
+//                }
+//            });
         } catch (Exception e) {
             e.printStackTrace();
         }

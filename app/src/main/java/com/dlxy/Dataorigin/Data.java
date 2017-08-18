@@ -65,6 +65,7 @@ public class Data {
     public static int[] lvyou_ouzhou = {R.mipmap.ic_lvyou_deguo,R.mipmap.ic_lvyou_faguo,R.mipmap.ic_lvyou_ruishi,R.mipmap.ic_lvyou_xibanya,R.mipmap.ic_lvyou_yidali,R.mipmap.ic_lvyou_yinguo};
     public static int[] lvyou_rihan = {R.mipmap.ic_lvyou_beihaidao,R.mipmap.ic_lvyou_daban,R.mipmap.ic_lvyou_dongjing,R.mipmap.ic_lvyou_riben};
 
+    public static int[] lunbo = {R.mipmap.lunbo1,R.mipmap.lunbo2,R.mipmap.lunbo3,R.mipmap.lunbo4,R.mipmap.lunbo5};
 
 
 

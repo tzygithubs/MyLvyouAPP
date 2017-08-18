@@ -57,8 +57,9 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         dbHelper = new DBHelper(this);
 
         try {
-            sp = getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
-            String DATABASE_BIAOMING = sp.getString("name",null);
+            sp = getSharedPreferences("sp_demo", MainActivity.MODE_PRIVATE);
+            sp.edit().putBoolean("boolean",true).putString("name","tzy").commit();
+            String DATABASE_BIAOMING = sp.getString("name","tzy");
             String sul = "create table if not exists "+DATABASE_BIAOMING+""+"(_id  integer primary key autoincrement,name varchar, jieshao varchar,jiner integer,kaishi varchar , zhongdian varchar )";
             db = dbManager.getWritableDatabase();
             db.execSQL(sul);

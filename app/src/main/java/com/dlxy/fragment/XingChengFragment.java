@@ -38,11 +38,10 @@ public class XingChengFragment extends Fragment {
     private View view;
     private int[] img ={R.mipmap.ic_launcher};
     private List<ShopCart> list ;
-    private ListView listView1;
+    private ListView listView1,xinfaxian;
     private XingChengAdapter adapter ;
-    private SQLiteXingCheng dbadapter,sqLiteXingCheng;
+    private SQLiteXingCheng sqLiteXingCheng;
     DBHelper dbHelper ;
-    private int x ;
     private QQListView qqListView;
     public XingChengFragment (Context context){
         dbManager = new DBManager(context);
@@ -64,11 +63,11 @@ public class XingChengFragment extends Fragment {
     private void initView(View v) {
         SharedPreferences sp  = this.getActivity().getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
         boolean b =  sp.getBoolean("boolean",false);
-        final String DATABASE_BIAOMING = sp.getString("name","123");
+        final String DATABASE_BIAOMING = sp.getString("name",null);
         //Toast.makeText(XingChengFragment.this.getActivity(),"..."+b,Toast.LENGTH_SHORT).show();
         listView1 = v.findViewById(R.id.item_xc_listView);
         Log.i(TAG,"..........00000on  onCreateview");
-
+        xinfaxian = v.findViewById(R.id.item_xc_xinfaxian_listView);
         adapter = new XingChengAdapter(v.getContext(),img);
 
         if(b==true){

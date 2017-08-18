@@ -6,9 +6,13 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
+
+import com.dlxy.Dataorigin.Data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +26,9 @@ import main.dlxy.com.mylvyouapp.R;
 public class JDIAN extends Activity implements View.OnClickListener {
     private Spinner spinn;
     private EditText ed;
-
+    private int[] img= Data.lunbo;
     private RadioGroup rg;
+    private ViewFlipper flippers;
     private String names;
     private ArrayAdapter adapter;
     private Button button;
@@ -44,6 +49,7 @@ public class JDIAN extends Activity implements View.OnClickListener {
         rg = findViewById(R.id.syxq_group1_id_layout);
         text = findViewById(R.id.id_text1_shouyexiangqing);
         ed =findViewById(R.id.cs_id_ed);
+        flippers =findViewById(R.id.jiudian_viewFlipper);
         findViewById(R.id.id_btn1_layout_item).setOnClickListener(this);
         findViewById(R.id.id_hw).setOnClickListener(this);
         findViewById(R.id.id_tg).setOnClickListener(this);
@@ -97,6 +103,24 @@ public class JDIAN extends Activity implements View.OnClickListener {
         }else if(names.equals("民宿·客栈")){
             rg.check(R.id.id_mskz);
         }
+
+        //动态导入的方式为ViewFlipper加入View
+        for (int i = 0; i < img.length; i++) {
+            flippers.addView(getImageView(img[i]));
+        }
+        //ViewFlipper去添加动画效果
+        flippers.setInAnimation(this, R.anim.left_in);
+        flippers.setOutAnimation(this, R.anim.left_out);
+        //设定ViewFlipper视图切换的时间间隔
+        flippers.setFlipInterval(5000);
+        //开始播放
+        flippers.startFlipping();
+    }
+
+    private ImageView getImageView(int img) {
+        ImageView imageView = new ImageView(JDIAN.this);
+        imageView.setImageResource(img);
+        return imageView;
     }
 
     @Override

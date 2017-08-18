@@ -26,7 +26,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         requestQueue = Volley.newRequestQueue(getApplicationContext());
-        imageLoader = new ImageLoader(getRequestQueue(), new VolleyImageCache());
+        imageLoader = new ImageLoader(MyApplication.getRequestQueue(), new VolleyImageCache());
     }
     class VolleyImageCache implements ImageLoader.ImageCache {
         private LruCache<String, Bitmap> mCache;
