@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 import main.dlxy.com.Activity.DengRu;
+import main.dlxy.com.Activity.QQdengru;
 import main.dlxy.com.mylvyouapp.R;
 
 /**
@@ -84,25 +85,35 @@ public class HotelAdapter extends BaseAdapter {
         Hoder.bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences sp = context.getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
-                String DATABASE_BIAOMING = sp.getString("name","123");
+                try {
+                    SharedPreferences sp = context.getSharedPreferences("sp_demo", QQdengru.MODE_PRIVATE);
+                    String DATABASE_BIAOMING = sp.getString("name",null);
+                    Boolean b =sp.getBoolean("boolean",false);
+                    if (b==true){
+                        Toast.makeText(context,"添加成功",Toast.LENGTH_SHORT).show();
+                        dbHelper = new DBHelper(context);
+                        ShopCart shopCart = new ShopCart();
+                        shopCart.setName(n);
+                        if(k.equals("钟点房")){
+                            shopCart.setSum(j);
+                            shopCart.setKaishi("3小时");
+                        }else {
+                            shopCart.setSum(j*z);
+                            shopCart.setKaishi(d);
+                        }
 
-                Toast.makeText(context,"添加成功",Toast.LENGTH_SHORT).show();
-                dbHelper = new DBHelper(context);
-                ShopCart shopCart = new ShopCart();
-                shopCart.setName(n);
-                if(k.equals("钟点房")){
-                    shopCart.setSum(j);
-                    shopCart.setKaishi("3小时");
-                }else {
-                    shopCart.setSum(j*z);
-                    shopCart.setKaishi(d);
+                        shopCart.setJieshao(k);
+
+                        shopCart.setZhongdian(c);
+                        dbHelper.add(shopCart,DATABASE_BIAOMING);
+                    }else if (b==false){
+                        Toast.makeText(context,"请先登入",Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
                 }
 
-                shopCart.setJieshao(k);
 
-                shopCart.setZhongdian(c);
-                dbHelper.add(shopCart,DATABASE_BIAOMING);
             }
         });
         return view;

@@ -77,17 +77,30 @@ public class XiangQing extends Activity implements AdapterView.OnItemClickListen
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        dbHelper = new DBHelper(this);
-        ShopCart shopCart = new ShopCart();
-        shopCart.setName(piao);
-        shopCart.setSum(jiage[i]);
-        shopCart.setJieshao(list.get(i).get("zuowei").toString());
-        shopCart.setKaishi(chushi);
-        shopCart.setZhongdian(zhongdian);
-        SharedPreferences sp = getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
-        String DATABASE_BIAOMING = sp.getString("name","123");
-        dbHelper.add(shopCart ,DATABASE_BIAOMING);
-        Toast.makeText(XiangQing.this,"添加成功",Toast.LENGTH_SHORT).show();
+
+        try {
+            SharedPreferences sp = getSharedPreferences("sp_demo", QQdengru.MODE_PRIVATE);
+            String DATABASE_BIAOMING = sp.getString("name","123");
+            Boolean b = sp.getBoolean("boolean",false);
+            if (b ==true) {
+                dbHelper = new DBHelper(this);
+                ShopCart shopCart = new ShopCart();
+                shopCart.setName(piao);
+                shopCart.setSum(jiage[i]);
+                shopCart.setJieshao(list.get(i).get("zuowei").toString());
+                shopCart.setKaishi(chushi);
+                shopCart.setZhongdian(zhongdian);
+
+                dbHelper.add(shopCart, DATABASE_BIAOMING);
+                Toast.makeText(XiangQing.this, "添加成功", Toast.LENGTH_SHORT).show();
+            }else if (b==false){
+                Toast.makeText(XiangQing.this, "请先登入", Toast.LENGTH_SHORT).show();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override

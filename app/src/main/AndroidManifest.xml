@@ -30,13 +30,36 @@
         <activity android:name="main.dlxy.com.Activity.SheZhi"/>
         <activity android:name="main.dlxy.com.Activity.SYXQActivity"/>
         <activity android:name="main.dlxy.com.Activity.PinBing"/>
-        <activity android:name="com.dlxy.RiLi.Rlactivity"/>
         <activity android:name="main.dlxy.com.Activity.XiangQing"/>
         <activity android:name="main.dlxy.com.Activity.JDIAN"></activity>
         <activity android:name="main.dlxy.com.Activity.LvYou"/>
         <activity android:name="main.dlxy.com.Activity.JDIANXQ"></activity>
         <activity android:name="main.dlxy.com.Activity.Hotel"/>
+        <activity android:name="main.dlxy.com.Activity.QQdengru"/>
 
+        <receiver android:name="com.dlxy.Utils.Receiver">
+            <intent-filter>
+                <action android:name="com.tzy"></action>
+            </intent-filter>
+        </receiver>
+        <activity
+            android:name="com.umeng.qq.tencent.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="tencent100424468"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.umeng.qq.tencent.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
         <provider
             android:authorities="main.dlxy.com.mylvyouapp.myProvider"

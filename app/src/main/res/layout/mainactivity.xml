@@ -19,44 +19,61 @@
         android:layout_weight="1"
         android:orientation="horizontal"
         android:gravity="center_vertical">
-<RelativeLayout
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
         <RadioButton
             android:id="@+id/radiobutton_shouye"
             style="@style/RadioButton"
             android:background="@mipmap/im_rg_shouye_false"
-            android:layout_marginLeft="10dp"
-
+            android:layout_gravity="center_horizontal"
             />
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <RadioButton
             android:id="@+id/radiobutton_xingcheng"
             style="@style/RadioButton"
             android:background="@mipmap/im_rg_xingcheng_true"
-            android:layout_toRightOf="@id/radiobutton_shouye"
-            android:layout_marginLeft="65dp"
-
+            android:layout_gravity="center_horizontal"
             />
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <RadioButton
             android:id="@+id/radiobutton_kefu"
             style="@style/RadioButton"
             android:background="@mipmap/im_rg_kefu_false"
-
-            android:layout_toRightOf="@id/radiobutton_xingcheng"
-
-            android:layout_marginLeft="65dp"
+            android:layout_gravity="center_horizontal"
             />
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <RadioButton
             android:id="@+id/radiobutton_wode"
             style="@style/RadioButton"
             android:background="@mipmap/im_rg_wode_false"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
+            android:layout_gravity="center_horizontal"
             />
-        </RelativeLayout>
+    </LinearLayout>
+
+        </LinearLayout>
     </RadioGroup>
 
 </LinearLayout>

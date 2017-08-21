@@ -43,7 +43,7 @@ public class SheZhi extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        sp = getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
+        sp = getSharedPreferences("sp_demo", QQdengru.MODE_PRIVATE);
         sp.edit().putBoolean("boolean",false).commit();
         Intent intent = new Intent(SheZhi.this,MainActivity.class);
         Bundle b = new Bundle();

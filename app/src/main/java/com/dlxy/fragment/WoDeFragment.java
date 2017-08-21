@@ -40,6 +40,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import main.dlxy.com.Activity.DengRu;
+import main.dlxy.com.Activity.QQdengru;
 import main.dlxy.com.Activity.SheZhi;
 import main.dlxy.com.mylvyouapp.R;
 
@@ -85,14 +86,16 @@ public class WoDeFragment extends Fragment implements View.OnClickListener {
         linearLayout = view.findViewById(R.id.lv_123);
         dengrulinarLaout = view.findViewById(R.id.lv_321);
         saomas = view.findViewById(R.id.saoma);
-        VolleyImageUtils.loadImage("http://q.qlogo.cn/qqapp/100424468/DCCC78DD980CF083525BBF8373BAF538/100",imgtx);
+
         try {
-            sp = this.getActivity().getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
+            sp = this.getActivity().getSharedPreferences("sp_demo", QQdengru.MODE_PRIVATE);
             String name =sp.getString("name",null);
             boolean b= sp.getBoolean("boolean",false);
+            String urltouxiang  = sp.getString("url",null);
             if (b==true){
                 linearLayout.setVisibility(linearLayout.VISIBLE);
                 dengrulinarLaout.setVisibility(dengrulinarLaout.GONE);
+                VolleyImageUtils.loadImage(urltouxiang,imgtx);
             }else if (b==false){
                 linearLayout.setVisibility(linearLayout.GONE);
                 dengrulinarLaout.setVisibility(dengrulinarLaout.VISIBLE);
@@ -135,7 +138,7 @@ public class WoDeFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.wode_btn_dianjidengru:
-                Intent intent1 = new Intent(WoDeFragment.this.getActivity(),DengRu.class);
+                Intent intent1 = new Intent(WoDeFragment.this.getActivity(),QQdengru.class);
                 startActivity(intent1);
                 break;
         }

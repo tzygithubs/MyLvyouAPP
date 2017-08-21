@@ -26,7 +26,7 @@ import main.dlxy.com.mylvyouapp.R;
 
 
 public class MainActivity extends FragmentActivity implements ViewPager.OnPageChangeListener, View.OnClickListener {
-    private static final String TAG ="MainActivity";
+//    private static final String TAG ="MainActivity";
     private CustomViewPager vp;
     private RadioGroup rg;
     private RadioButton shouye,xingcheng,kefu, wode;
@@ -58,8 +58,8 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 
         try {
             sp = getSharedPreferences("sp_demo", MainActivity.MODE_PRIVATE);
-            sp.edit().putBoolean("boolean",true).putString("name","tzy").commit();
-            String DATABASE_BIAOMING = sp.getString("name","tzy");
+
+            String DATABASE_BIAOMING = sp.getString("name",null);
             String sul = "create table if not exists "+DATABASE_BIAOMING+""+"(_id  integer primary key autoincrement,name varchar, jieshao varchar,jiner integer,kaishi varchar , zhongdian varchar )";
             db = dbManager.getWritableDatabase();
             db.execSQL(sul);

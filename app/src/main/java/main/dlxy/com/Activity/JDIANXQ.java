@@ -62,47 +62,7 @@ public class  JDIANXQ extends Activity {
                 startActivity(intent);
             }
         });
-//        if (t.equals("海外")) {
-//            if (names.equals("曼谷")) {
-//                String NAME5 = "曼谷";
-//                adapter = new JdxqAdapter(this, list,NAME5);
-//                lv.setAdapter(adapter);
-//            }else if (names.equals("夏威夷")){
-//                String NAME5 = "夏威夷";
-//                adapter = new JdxqAdapter(this,list, NAME5);
-//                lv.setAdapter(adapter);
-//            }
-//        }else if (t.equals("团购")){
-//            if (names.equals("曼谷")) {
-//                String NAME5 = "曼谷";
-//                adapter = new JdxqAdapter(this, list,NAME5);
-//                lv.setAdapter(adapter);
-//            }else if (names.equals("夏威夷")){
-//                String NAME5 = "夏威夷";
-//                adapter = new JdxqAdapter(this,list, NAME5);
-//                lv.setAdapter(adapter);
-//            }
-//        }else if (t.equals("特价酒店")){
-//            if (names.equals("曼谷")) {
-//                String NAME5 = "曼谷";
-//                adapter = new JdxqAdapter(this, list,NAME5);
-//                lv.setAdapter(adapter);
-//            }else if (names.equals("夏威夷")){
-//                String NAME5 = "夏威夷";
-//                adapter = new JdxqAdapter(this,list, NAME5);
-//                lv.setAdapter(adapter);
-//            }
-//        }else if (t.equals("民宿·客栈")){
-//            if (names.equals("曼谷")) {
-//                String NAME5 = "曼谷";
-//                adapter = new JdxqAdapter(this, list,NAME5);
-//                lv.setAdapter(adapter);
-//            }else if (names.equals("夏威夷")){
-//                String NAME5 = "夏威夷";
-//                adapter = new JdxqAdapter(this,list, NAME5);
-//                lv.setAdapter(adapter);
-//            }
-//        }
+
     }
 
     private void initData() {

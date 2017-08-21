@@ -12,20 +12,20 @@
                     android:id="@+id/xc_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="30dp"/>
+                    android:textSize="30sp"/>
                 <TextView
                     android:id="@+id/xc_jieshao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="30dp"/>
+                    android:textSize="30sp"/>
                 <TextView
                     android:id="@+id/xc_sum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="30dp"/>
+                    android:textSize="30sp"/>
 
         </LinearLayout>
-
+.
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

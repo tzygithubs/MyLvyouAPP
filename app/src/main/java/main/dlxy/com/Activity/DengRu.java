@@ -68,7 +68,7 @@ public class DengRu extends Activity implements View.OnClickListener {
                     public void success(String info) {
 
                         if(info.equals("ok")) {
-                            sp = getSharedPreferences("sp_demo", DengRu.MODE_PRIVATE);
+                            sp = getSharedPreferences("sp_demo", QQdengru.MODE_PRIVATE);
                             sp.edit().putString("name",names).putBoolean("boolean",true).commit();
                             String Bname = names;
 //                            boolean s = dbHelper.chaxunbiao();
