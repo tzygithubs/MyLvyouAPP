@@ -20,6 +20,8 @@ import com.umeng.socialize.utils.SocializeUtils;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import main.dlxy.com.mylvyouapp.R;
 
@@ -113,6 +115,7 @@ public class QQdengru extends Activity {
             String temp = "";
             String url=null;
             String name = null;
+            String yonghuming = null;
             for (String key : data.keySet()) {
                 temp = temp + key + " : " + data.get(key) + "\n";
                 if (key.equals("profile_image_url")){
@@ -125,6 +128,9 @@ public class QQdengru extends Activity {
 
                     Log.i(TAG,"........temp....:"+data.get(key));
                 }
+                if (key.equals("screen_name")){
+                    yonghuming = data.get(key);
+                }
             }
             Log.i(TAG,"........temp:"+temp);
             sp = getSharedPreferences("sp_demo", QQdengru.MODE_PRIVATE);
@@ -133,7 +139,10 @@ public class QQdengru extends Activity {
             Log.i(TAG,".........................names"+name);
             if ( name != null){
 
-                sp.edit().putString("name",name).putBoolean("boolean",true).putString("url",url).commit();
+                sp.edit().putString("name",name)
+                        .putBoolean("boolean",true)
+                        .putString("yonghuming",yonghuming)
+                        .putString("url",url).commit();
             }
 
         }
@@ -162,6 +171,7 @@ public class QQdengru extends Activity {
         UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
         UMShareAPI.get(QQdengru.this).getPlatformInfo(QQdengru.this, SHARE_MEDIA.QQ, authListeners);
 
+        iten();
 
     }
 
@@ -175,5 +185,23 @@ public class QQdengru extends Activity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         UMShareAPI.get(this).onSaveInstanceState(outState);
+    }
+
+    public void iten(){
+
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(QQdengru.this, MainActivity.class);
+                Bundle b = new Bundle();
+                b.putString("name","shezhi");
+
+                intent.putExtras(b);
+                startActivity(intent);
+
+            }
+        };
+        timer.schedule(task, 2000);
     }
 }

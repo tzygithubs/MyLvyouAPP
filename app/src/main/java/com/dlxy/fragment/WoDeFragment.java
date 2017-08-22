@@ -92,9 +92,11 @@ public class WoDeFragment extends Fragment implements View.OnClickListener {
             String name =sp.getString("name",null);
             boolean b= sp.getBoolean("boolean",false);
             String urltouxiang  = sp.getString("url",null);
+            String yonghumin = sp.getString("yonghuming",null);
             if (b==true){
                 linearLayout.setVisibility(linearLayout.VISIBLE);
                 dengrulinarLaout.setVisibility(dengrulinarLaout.GONE);
+                tv.setText(yonghumin);
                 VolleyImageUtils.loadImage(urltouxiang,imgtx);
             }else if (b==false){
                 linearLayout.setVisibility(linearLayout.GONE);
@@ -133,9 +135,6 @@ public class WoDeFragment extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
 
-            case R.id.touxiang:
-                showWindow();
-                break;
 
             case R.id.wode_btn_dianjidengru:
                 Intent intent1 = new Intent(WoDeFragment.this.getActivity(),QQdengru.class);
