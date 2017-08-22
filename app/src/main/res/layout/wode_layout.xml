@@ -330,19 +330,20 @@ android:layout_height="70dp">
     android:id="@+id/imageView4"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:src="@mipmap/ic_wode_naquhua"
     android:layout_alignTop="@+id/textView6"
-    android:layout_marginLeft="44dp"
-    android:layout_toRightOf="@+id/textView6"
-    android:src="@mipmap/ic_wode_naquhua" />
+    android:layout_toLeftOf="@+id/textView15"
+    android:layout_toStartOf="@+id/textView15" />
 
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_alignTop="@+id/imageView4"
-    android:layout_marginLeft="14dp"
-    android:layout_toRightOf="@+id/imageView4"
     android:text="拿去花"
-    android:textSize="18sp" />
+    android:textSize="18sp"
+    android:layout_alignTop="@+id/imageView4"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentEnd="true"
+    android:id="@+id/textView15" />
 
 <TextView
     android:layout_width="wrap_content"
@@ -363,9 +364,11 @@ android:layout_height="70dp">
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
-    android:layout_toEndOf="@+id/imageView4"
-    android:layout_toRightOf="@+id/imageView4"
-    android:text="立即开通" />
+
+
+    android:text="立即开通"
+    android:layout_alignLeft="@+id/imageView4"
+    android:layout_alignStart="@+id/imageView4" />
 </RelativeLayout>
 
 <View
